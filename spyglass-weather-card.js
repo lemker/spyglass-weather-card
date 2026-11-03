@@ -14,6 +14,26 @@ const TAG = 'spyglass-weather-card';
 
 // Localize only built-in card/editor copy. Provider weather text is not modified.
 const SPYGLASS_DE = Object.freeze({
+  "night": "Nacht",
+  "several times, first at {time}": "mehrmals, erstmals um {time}",
+  "at {first}, {second}, and {third}": "um {first}, {second} und {third}",
+  "at {first} and {second}": "um {first} und {second}",
+  "at {time}": "um {time}",
+  "high of {value} {when}, low of {low} {lowWhen}": "Höchstwert {value} {when}, Tiefstwert {low} {lowWhen}",
+  "and": "und",
+  "of rain": "Regen",
+  "of snow": "Schnee",
+  "{condition} in the evening": "abends {condition}",
+  "{condition} in the afternoon": "nachmittags {condition}",
+  "{condition} in the morning": "vormittags {condition}",
+  "{condition} all day": "Den ganzen Tag {condition}",
+  "peaking": "Maximum",
+  "peaks": "Maximum",
+  "UV peaks at {value} ({level}).": "Voraussichtlicher UV-Höchstwert {value} ({level}).",
+  "UV peaked at {value} ({level}).": "UV-Höchstwert {value} ({level}).",
+  "UV {form} at {value} ({level}) around {time}": "UV {form} bei {value} ({level}) gegen {time}",
+  "Gusts up to {value} {unit} around {time}": "Böen bis {value} {unit} gegen {time}",
+  "High of {high} around {highTime}, low of {low} around {lowTime}": "Höchstwert {high} gegen {highTime}, Tiefstwert {low} gegen {lowTime}",
   "Gusts: ": "Böen: ",
   "Fire risk is {level}.": "Waldbrandgefahr: {level}.",
   "Smoke is {value} {unit}, {quality}.": "Rauchbelastung: {value} {unit} ({quality}).",
@@ -1346,7 +1366,7 @@ function update(hass, entity) {
       /* a past day: its high and low, and smoke if there was any worth noting; the fire
          risk is only known as it is now */
       let t = pts.length > 1 ? aqiScale.name + ' ' + hiLoAt(pts, (v) => String(Math.round(v))) + '.' : '';
-      if (smShown) { const pk = smPts.reduce((m2, q) => (q[1] > m2[1] ? q : m2), smPts[0]); t += ' Smoke peaked at ' + Math.round(pk[1]) + ' ' + smU + ' around ' + new Date(Math.round(pk[0] / 36e5) * 36e5).toLocaleTimeString(lang, { hour: 'numeric', hour12: h12 }) + '.'; }
+      if (smShown) { const pk = smPts.reduce((m2, q) => (q[1] > m2[1] ? q : m2), smPts[0]); t += ' ' + tf('Smoke peaked at {value} {unit} around {time}.', { value: Math.round(pk[1]), unit: smU, time: new Date(Math.round(pk[0] / 36e5) * 36e5).toLocaleTimeString(lang, { hour: 'numeric', hour12: h12 }) }); }
       txt.textContent = t.trim();
     } else if (S.aqiNow != null) {
       const b = bandOf(S.aqiNow);
@@ -1354,11 +1374,11 @@ function update(hass, entity) {
       let t = tf('{scale} is {value}, {quality}.', { scale: aqiScale.name, value: Math.round(S.aqiNow), quality: String(b[3]).toLowerCase() });
       if (vals.length > 1) t += ' ' + tf('Today, a {range}.', { range: hiLoAt(pts, (v) => String(Math.round(v))) });
       /* smoke and fire risk, which used to be chips of their own */
-      if (smNow != null && smNow >= 5) t += ' Smoke is ' + Math.round(smNow) + ' ' + smU + ', ' + ['light', 'moderate', 'heavy', 'very heavy', 'hazardous'][[12, 35, 55, 150].filter((e2) => smNow > e2).length] + '.';
+      if (smNow != null && smNow >= 5) t += ' ' + tf('Smoke is {value} {unit}, {quality}.', { value: Math.round(smNow), unit: smU, quality: tr(['light', 'moderate', 'heavy', 'very heavy', 'hazardous'][[12, 35, 55, 150].filter((e2) => smNow > e2).length]) });
       const fE = (cfg.details || {}).fire && hass.states[(cfg.details || {}).fire];
       /* the risk level only: the index behind it is a 0-100 weather-only number that says
          nothing more to a reader than the level already does */
-      if (fE && !/^(unknown|unavailable|none)$/i.test(fE.state)) t += ' Fire risk is ' + String(fE.state).toLowerCase() + '.';
+      if (fE && !/^(unknown|unavailable|none)$/i.test(fE.state)) t += ' ' + tf('Fire risk is {level}.', { level: tr(String(fE.state).toLowerCase()) });
       txt.textContent = t;
     }
     return wrap;
@@ -1937,12 +1957,12 @@ function update(hass, entity) {
       const hourAt = (h) => { const d = new Date(day0); d.setHours(h, 0, 0, 0); return d.getTime(); };   /* local, so DST days work */
       const part = (from, to) => { const k2 = condLongest(hourAt(from), hourAt(to)); return k2 ? (word[k2] || k2) : ''; };
       const morning = part(5, 12), afternoon = part(12, 18), evening = part(18, 24);
-      if (morning && morning === afternoon && morning === evening) sents.push(cap(morning) + ' all day');
+      if (morning && morning === afternoon && morning === evening) sents.push(tf('{condition} all day', { condition: cap(tr(morning)) }));
       else {
         const seq = [];
-        if (morning) seq.push(morning + ' in the morning');
-        if (afternoon && afternoon !== morning) seq.push(afternoon + ' in the afternoon');
-        if (evening && evening !== afternoon) seq.push(evening + ' in the evening');
+        if (morning) seq.push(tf('{condition} in the morning', { condition: tr(morning) }));
+        if (afternoon && afternoon !== morning) seq.push(tf('{condition} in the afternoon', { condition: tr(afternoon) }));
+        if (evening && evening !== afternoon) seq.push(tf('{condition} in the evening', { condition: tr(evening) }));
         if (seq.length) sents.push(cap(seq.join(', ')));
       }
     }
@@ -1950,7 +1970,7 @@ function update(hass, entity) {
     if (pts.length > 1) {
       const hiP2 = pts.reduce((m, p) => p[1] > m[1] ? p : m, pts[0]);
       const loP2 = pts.reduce((m, p) => p[1] < m[1] ? p : m, pts[0]);
-      sents.push('High of ' + L.t(hiP2[1]) + ' around ' + hr2(hiP2[0]) + ', low of ' + L.t(loP2[1]) + ' around ' + hr2(loP2[0]));
+      sents.push(tf('High of {high} around {highTime}, low of {low} around {lowTime}', { high: L.t(hiP2[1]), highTime: hr2(hiP2[0]), low: L.t(loP2[1]), lowTime: hr2(loP2[0]) }));
     }
     /* rain: fallen and expected, from the same totals as the rain line, and the peak chance */
     {
@@ -1983,10 +2003,10 @@ function update(hass, entity) {
       const kmhOf = { mph: 1.609, 'm/s': 3.6, kn: 1.852, 'ft/s': 1.097 }[wu] || 1;
       const ahead = hrs.filter((i) => Date.parse(i.datetime) > now - 18e5);
       const gPk = ahead.reduce((m, i) => (Number(i.wind_gust_speed) > (m ? Number(m.wind_gust_speed) : -1) ? i : m), null);
-      if (gPk && Number(gPk.wind_gust_speed) * kmhOf >= 30) sents.push('Gusts up to ' + Math.round(Number(gPk.wind_gust_speed)) + ' ' + wu + ' around ' + hr2(Date.parse(gPk.datetime)));
+      if (gPk && Number(gPk.wind_gust_speed) * kmhOf >= 30) sents.push(tf('Gusts up to {value} {unit} around {time}', { value: Math.round(Number(gPk.wind_gust_speed)), unit: wu, time: hr2(Date.parse(gPk.datetime)) }));
       const uPk = ahead.reduce((m, i) => (Number(i.uv_index) > (m ? Number(m.uv_index) : -1) ? i : m), null);
       const uvPk = uPk ? Number(uPk.uv_index) : 0;
-      if (uvPk >= 6) sents.push('UV ' + (dayOff > 0 ? 'peaks' : 'peaking') + ' at ' + Math.round(uvPk) + ' (' + (uvPk >= 11 ? 'extreme' : uvPk >= 8 ? 'very high' : 'high') + ') around ' + hr2(Date.parse(uPk.datetime)));
+      if (uvPk >= 6) sents.push(tf('UV {form} at {value} ({level}) around {time}', { form: tr(dayOff > 0 ? 'peaks' : 'peaking'), value: Math.round(uvPk), level: tr(uvPk >= 11 ? 'extreme' : uvPk >= 8 ? 'very high' : 'high'), time: hr2(Date.parse(uPk.datetime)) }));
     }
     foot.textContent = sents.length ? sents.map((t2) => cap(t2) + '.').join(' ') : '';
     return wrap;
@@ -2011,11 +2031,11 @@ function update(hass, entity) {
         lastT = p[0];
       });
       const labels = [...new Set(starts.map(at))];
-      if (labels.length > 3) return 'several times, first at ' + labels[0];
-      if (labels.length === 3) return 'at ' + labels[0] + ', ' + labels[1] + ', and ' + labels[2];
-      return 'at ' + labels.join(' and ');
+      if (labels.length > 3) return tf('several times, first at {time}', { time: labels[0] });
+      if (labels.length === 3) return tf('at {first}, {second}, and {third}', { first: labels[0], second: labels[1], third: labels[2] });
+      return labels.length === 2 ? tf('at {first} and {second}', { first: labels[0], second: labels[1] }) : tf('at {time}', { time: labels[0] || '' });
     };
-    return 'high of ' + fmtV(hi[1]) + ' ' + times(hi[1]) + ', low of ' + fmtV(lo[1]) + ' ' + times(lo[1]);
+    return tf('high of {value} {when}, low of {low} {lowWhen}', { value: fmtV(hi[1]), when: times(hi[1]), low: fmtV(lo[1]), lowWhen: times(lo[1]) });
   };
   /* ---- dew point: the moisture actually in the air, in the temperature's own unit.
      Where the provider or a sensor gives it, that is used; otherwise it is worked out
@@ -2158,7 +2178,7 @@ function update(hass, entity) {
       id: 'u', day0: dayStartOf(off), pts: pts, nowVal: off ? null : S.uvNow, bands: uvBands, ymax: ymax, tintScale: true,
       ticks: [0, 3, 6, 8, 11].concat(ymax > 11 ? [ymax] : []), fmt: (v) => v,
       summary: (vals, colourOf) => {
-        if (off) { const mx2 = vals.length ? Math.max(...vals) : 0; return mx2 ? (off < 0 ? 'UV peaked at ' : 'UV peaks at ') + Math.round(mx2) + ' (' + colourOf(mx2)[3] + ').' : ''; }
+        if (off) { const mx2 = vals.length ? Math.max(...vals) : 0; return mx2 ? tf(off < 0 ? 'UV peaked at {value} ({level}).' : 'UV peaks at {value} ({level}).', { value: Math.round(mx2), level: colourOf(mx2)[3] }) : ''; }
         if (S.uvNow == null) return '';
         let t = tf('UV index is currently {value}, {level}.', { value: Math.round(S.uvNow), level: colourOf(S.uvNow)[3] });
         if (vals.length > 1) { const mx = Math.max(...vals); t += ' ' + tf("Today's peak is {value} ({level}).", { value: Math.round(mx), level: colourOf(mx)[3] }); }
@@ -2759,7 +2779,7 @@ function update(hass, entity) {
       const v = num(dcfg.uv);
       if (v != null) S.uvNow = v;
       if (v != null) chips.push({ ent: dcfg.uv, view: 'uv', icon: 'mdi:white-balance-sunny', label: 'UV', value: Math.round(v),
-        note: band(v, [2, 5, 7, 10], ['Low', 'Moderate', 'High', 'Very high', 'Extreme']), col: band(v, [2, 5, 7, 10], [cols[0], cols[1], cols[2], cols[3], cols[4]]) });
+        note: tr(band(v, [2, 5, 7, 10], ['Low', 'Moderate', 'High', 'Very high', 'Extreme'])), col: band(v, [2, 5, 7, 10], [cols[0], cols[1], cols[2], cols[3], cols[4]]) });
     }
     if (dcfg.aqi) {
       const v = num(dcfg.aqi);
@@ -2797,7 +2817,7 @@ function update(hass, entity) {
         S.windNow = { v: v, u: u, dir: dir, gust: null };
         if (gust != null && isFinite(gust)) S.windNow.gust = gust;
         chips.push({ ent: ent, view: 'wind', icon: 'mdi:weather-windy', label: 'Wind', value: Math.round(v) + ' ' + u + (dir ? ' ' + dir : ''),
-          note: gust != null && isFinite(gust) && gust > v ? 'Gusts ' + Math.round(gust) + (gu !== u ? ' ' + gu : '') : '',
+          note: gust != null && isFinite(gust) && gust > v ? tr('Gusts') + ' ' + Math.round(gust) + (gu !== u ? ' ' + gu : '') : '',
           col: band(k, [10, 20, 30, 40, 50], cols) });
       }
     }
