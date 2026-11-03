@@ -1,0 +1,33 @@
+name: Localization checks
+
+on:
+  push:
+    paths:
+      - 'locales/**'
+      - 'scripts/build-locales.mjs'
+      - 'spyglass-weather-card.js'
+      - 'tests/**'
+      - 'package.json'
+  pull_request:
+    paths:
+      - 'locales/**'
+      - 'scripts/build-locales.mjs'
+      - 'spyglass-weather-card.js'
+      - 'tests/**'
+      - 'package.json'
+
+permissions:
+  contents: read
+
+jobs:
+  localization:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate generated locale bundle
+        run: npm run build -- --check
+      - name: Run localization tests
+        run: npm test
