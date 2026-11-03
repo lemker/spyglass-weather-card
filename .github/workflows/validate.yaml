@@ -11,6 +11,10 @@ permissions: {}
 
 jobs:
   validate-hacs:
+    # This fork is a development workspace; HACS publication checks require
+    # repository topics and enabled Issues on the publishing repository.
+    # Keep upstream validation when a PR is eventually submitted there.
+    if: github.repository == 'lemker/spyglass-weather-card'
     runs-on: "ubuntu-latest"
     steps:
       - name: HACS validation
