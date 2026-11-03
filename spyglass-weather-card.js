@@ -14,6 +14,27 @@ const TAG = 'spyglass-weather-card';
 
 // Localize only built-in card/editor copy. Provider weather text is not modified.
 const SPYGLASS_DE = Object.freeze({
+  "Gusts: ": "Böen: ",
+  "Fire risk is {level}.": "Waldbrandgefahr: {level}.",
+  "Smoke is {value} {unit}, {quality}.": "Rauchbelastung: {value} {unit} ({quality}).",
+  "Today, a {range}.": "Heute: {range}.",
+  "{scale} is {value}, {quality}.": "{scale} liegt bei {value} ({quality}).",
+  "Smoke peaked at {value} {unit} around {time}.": "Der Rauchwert erreichte gegen {time} einen Höchststand von {value} {unit}.",
+  "Sunrise in: {duration}": "Sonnenaufgang in: {duration}",
+  "Chart error: {error}": "Diagrammfehler: {error}",
+  "The air is close to saturation, so fog or dew is likely.": "Die Luft ist nahezu gesättigt; Nebel oder Tau ist wahrscheinlich.",
+  "The air is close to saturation and below freezing, so frost is likely.": "Die Luft ist nahezu gesättigt und unter dem Gefrierpunkt; Frost ist wahrscheinlich.",
+  "The air is saturated.": "Die Luft ist gesättigt.",
+  "Today it ranges from {range}.": "Heute bewegt er sich im Bereich {range}.",
+  "Dew point is currently {value}°, {level}.": "Der Taupunkt liegt aktuell bei {value}° ({level}).",
+  "Today's peak is {value} ({level}).": "Heutiger Höchstwert: {value} ({level}).",
+  "UV index is currently {value}, {level}.": "Der UV-Index liegt aktuell bei {value} ({level}).",
+  ", with gusts up to {gust} {unit}": ", mit Böen bis {gust} {unit}",
+  "Wind speeds are {low} to {high} {unit}": "Die Windgeschwindigkeiten liegen zwischen {low} und {high} {unit}",
+  "Wind speeds were {low} to {high} {unit}": "Die Windgeschwindigkeiten lagen zwischen {low} und {high} {unit}",
+  "Today, wind speeds are {low} to {high} {unit}": "Heute liegen die Windgeschwindigkeiten zwischen {low} und {high} {unit}",
+  " from the {direction}": " aus {direction}",
+  "Wind is currently {speed} {unit}{direction}. ": "Aktuell weht der Wind mit {speed} {unit}{direction}. ",
   "Feels like": "Gefühlt",
   "First light": "Beginn der Morgendämmerung",
   "Last light": "Ende der Abenddämmerung",
@@ -1147,9 +1168,9 @@ function update(hass, entity) {
     wrap.appendChild(svg);
     if (vals.length) {
       const dirName = { N: 'north', NE: 'northeast', E: 'east', SE: 'southeast', S: 'south', SW: 'southwest', W: 'west', NW: 'northwest' };
-      let txt = today2 && S.windNow ? 'Wind is currently ' + Math.round(S.windNow.v) + ' ' + u + (S.windNow.dir ? ' from the ' + dirName[S.windNow.dir] : '') + '. ' : '';
-      txt += (today2 ? 'Today, wind speeds are ' : pastDay ? 'Wind speeds were ' : 'Wind speeds are ') + Math.round(Math.min(...vals)) + ' to ' + Math.round(Math.max(...vals)) + ' ' + u;
-      if (gv.length) txt += ', with gusts up to ' + Math.round(Math.max(...gv)) + ' ' + u;
+      let txt = today2 && S.windNow ? tf('Wind is currently {speed} {unit}{direction}. ', { speed: Math.round(S.windNow.v), unit: u, direction: S.windNow.dir ? tf(' from the {direction}', { direction: tr(dirName[S.windNow.dir]) }) : '' }) : '';
+      txt += tf(today2 ? 'Today, wind speeds are {low} to {high} {unit}' : pastDay ? 'Wind speeds were {low} to {high} {unit}' : 'Wind speeds are {low} to {high} {unit}', { low: Math.round(Math.min(...vals)), high: Math.round(Math.max(...vals)), unit: u });
+      if (gv.length) txt += tf(', with gusts up to {gust} {unit}', { gust: Math.round(Math.max(...gv)), unit: u });
       rows.textContent = txt + '.';
     }
     return wrap;
@@ -1330,8 +1351,8 @@ function update(hass, entity) {
     } else if (S.aqiNow != null) {
       const b = bandOf(S.aqiNow);
       const vals = pts.map((p) => p[1]);
-      let t = aqiScale.name + ' is ' + Math.round(S.aqiNow) + ', ' + String(b[3]).toLowerCase() + '.';
-      if (vals.length > 1) t += ' Today, a ' + hiLoAt(pts, (v) => String(Math.round(v))) + '.';
+      let t = tf('{scale} is {value}, {quality}.', { scale: aqiScale.name, value: Math.round(S.aqiNow), quality: String(b[3]).toLowerCase() });
+      if (vals.length > 1) t += ' ' + tf('Today, a {range}.', { range: hiLoAt(pts, (v) => String(Math.round(v))) });
       /* smoke and fire risk, which used to be chips of their own */
       if (smNow != null && smNow >= 5) t += ' Smoke is ' + Math.round(smNow) + ' ' + smU + ', ' + ['light', 'moderate', 'heavy', 'very heavy', 'hazardous'][[12, 35, 55, 150].filter((e2) => smNow > e2).length] + '.';
       const fE = (cfg.details || {}).fire && hass.states[(cfg.details || {}).fire];
@@ -2086,14 +2107,14 @@ function update(hass, entity) {
           return 'Dew point ' + r3 + '. ' + (wLo === wHi ? wLo + ' all day.' : wLo + ' to ' + wHi.toLowerCase() + '.');
         }
         if (S.dewNow == null) return '';
-        let t = 'Dew point is currently ' + Math.round(S.dewNow) + '°, ' + dewLabel(S.dewNow).toLowerCase() + '.';
-        if (rng) t += ' Today it ranges from ' + rng + '.';
+        let t = tf('Dew point is currently {value}°, {level}.', { value: Math.round(S.dewNow), level: dewLabel(S.dewNow).toLowerCase() });
+        if (rng) t += ' ' + tf('Today it ranges from {range}.', { range: rng });
         /* within about 2 °C of the temperature the air is close to saturated */
         const tNow = Number(a.temperature);
         /* while it rains, fog or dew is beside the point: the air simply is saturated */
         const rainR = cfg.precipitation && cfg.precipitation.rain && hass.states[cfg.precipitation.rain];
         const raining = ['rainy', 'pouring', 'lightning-rainy', 'snowy-rainy', 'hail'].includes(st.state) || (rainR && Number(rainR.state) > 0);
-        if (isFinite(tNow) && toC(tNow) - toC(S.dewNow) <= 2) t += raining ? ' The air is saturated.' : toC(tNow) <= 0 ?' The air is close to saturation and below freezing, so frost is likely.' : ' The air is close to saturation, so fog or dew is likely.';
+        if (isFinite(tNow) && toC(tNow) - toC(S.dewNow) <= 2) t += ' ' + tr(raining ? 'The air is saturated.' : toC(tNow) <= 0 ? 'The air is close to saturation and below freezing, so frost is likely.' : 'The air is close to saturation, so fog or dew is likely.');
         return t;
       }
     }, Wd, H);
@@ -2139,8 +2160,8 @@ function update(hass, entity) {
       summary: (vals, colourOf) => {
         if (off) { const mx2 = vals.length ? Math.max(...vals) : 0; return mx2 ? (off < 0 ? 'UV peaked at ' : 'UV peaks at ') + Math.round(mx2) + ' (' + colourOf(mx2)[3] + ').' : ''; }
         if (S.uvNow == null) return '';
-        let t = 'UV index is currently ' + Math.round(S.uvNow) + ', ' + colourOf(S.uvNow)[3] + '.';
-        if (vals.length > 1) { const mx = Math.max(...vals); t += ' Today\'s peak is ' + Math.round(mx) + ' (' + colourOf(mx)[3] + ').'; }
+        let t = tf('UV index is currently {value}, {level}.', { value: Math.round(S.uvNow), level: colourOf(S.uvNow)[3] });
+        if (vals.length > 1) { const mx = Math.max(...vals); t += ' ' + tf("Today's peak is {value} ({level}).", { value: Math.round(mx), level: colourOf(mx)[3] }); }
         if (S.uvNow >= 3) t += ' Sun protection recommended.';
         return t;
       }
@@ -2795,7 +2816,7 @@ function update(hass, entity) {
       const v = num(dcfg.solar);
       if (v != null) S.solarNow = v;
       if (v != null) chips.push({ ent: dcfg.solar, view: 'solar', icon: 'mdi:solar-power-variant', label: 'Solar', value: Math.round(v) + ' W/m²',
-        note: v < 5 ? 'None' : band(v, [100, 300, 600], ['Dim', 'Moderate', 'Strong', 'Very strong']),
+        note: v < 5 ? tr('None') : tr(band(v, [100, 300, 600], ['Dim', 'Moderate', 'Strong', 'Very strong'])),
         col: v < 5 ? '70,80,110' : band(v, [100, 300, 600], [cols[4], cols[1], cols[2], cols[3]]) });
     }
     /* show_chips decides which chips appear: each is on unless set false, except solar,
@@ -3249,7 +3270,7 @@ function update(hass, entity) {
       try { wrap = builder(S.sunW, S.sunH); }
       catch (err) {
         console.error('spyglass-weather-card: chart failed', err);
-        L.el('div', 'wx-empty', fc).textContent = 'Chart error: ' + ((err && err.message) || err);
+        L.el('div', 'wx-empty', fc).textContent = tf('Chart error: {error}', { error: (err && err.message) || err });
         S.edge();
         return;
       }
@@ -3352,7 +3373,7 @@ function update(hass, entity) {
           const amt = (m) => (m < 60 ? m + ' min' : fmtDur(m * 6e4));
           hint = dd == null ? '' : dd === 0 ? 'Same daylight as today' : amt(Math.abs(dd)) + (dd > 0 ? ' more' : ' less') + ' daylight than today';
         } else if (now >= T.rise && now < T.set) hint = 'Daylight remaining: ' + fmtDur(T.set - now);
-        else hint = 'Sunrise in: ' + fmtDur((now < T.rise ? T.rise : T.rise + 864e5) - now);
+        else hint = tf('Sunrise in: {duration}', { duration: fmtDur((now < T.rise ? T.rise : T.rise + 864e5) - now) });
       }
       L.el('span', 'wx-fc-hint', head).textContent = hint;
       /* any day, back or forward: sun times are calculated, not recorded */
