@@ -1,0 +1,13 @@
+{
+  "name": "spyglass-weather-card",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Developer tooling for standalone HACS card localization",
+  "scripts": {
+    "build": "node scripts/build-locales.mjs",
+    "test": "node --test tests/localization.test.cjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
