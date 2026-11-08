@@ -44,3 +44,14 @@ A CI workflow checks the generated bundle and tests on pull requests.
 - Prefer idiomatic local-language phrasing for generated sentences.
 - Avoid changing the technical values in the visual editor (for example `daily`, `hourly`).
 - Review changes in `review/uebersetzungen-de.md` or the Excel-compatible CSV.
+
+## Numbers and wind directions
+
+Visible numbers follow Home Assistant's `number_format` preference: language, system,
+comma/decimal, decimal/comma, space/comma, Swiss grouping, or no grouping. The card
+preserves its existing rounding, decimal precision, and weather units. SVG coordinates,
+CSS values, entity IDs, and configuration values keep their technical formats.
+
+Compass keys (`N`, `NE`, `E`, etc.) translate only the displayed abbreviation. German
+uses `NO`, `O`, and `SO`; internal direction codes remain English so chart arrows and
+the existing wind summaries continue to use the same data.

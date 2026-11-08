@@ -53,13 +53,15 @@ if (start < 0 || end < 0 || source.indexOf(BEGIN, start + BEGIN.length) >= 0 ||
   throw new Error('Missing or duplicate generated locale markers in spyglass-weather-card.js.');
 
 const embedded = `${BEGIN}\nconst SPYGLASS_LOCALES = Object.freeze(${JSON.stringify(locales, null, 2)});\n${END}`;
-const built = source.slice(0, start) + embedded + source.slice(end + END.length);
-if (built === source) {
+const current = source.slice(start, end + END.length);
+if (current.replace(/\r\n/g, '\n') === embedded) {
   console.log(`Locale bundle up to date: ${Object.keys(locales).join(', ')}`);
 } else if (check) {
   console.error('Locale bundle is out of date. Run "npm run build" and commit spyglass-weather-card.js.');
   process.exitCode = 1;
 } else {
+  const lineEnding = current.includes('\r\n') ? '\r\n' : '\n';
+  const built = source.slice(0, start) + embedded.replace(/\n/g, lineEnding) + source.slice(end + END.length);
   await writeFile(DEST, built, 'utf8');
   console.log(`Updated ${DEST} with locales: ${Object.keys(locales).join(', ')}`);
 }

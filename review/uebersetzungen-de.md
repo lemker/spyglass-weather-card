@@ -1,6 +1,6 @@
 # Übersetzungsprüfung – Spyglass Weather Card
 
-Aktuelle deutsche Übersetzungen aus [locales/de.json](../locales/de.json) im Branch `feat/german-localization`. **238 Einträge**, davon **14 vom Nutzer bestätigt** (Stand: 03.11.2026). Das Verzeichnis `locales/` ist jetzt die führende Übersetzungsquelle; die JavaScript-Karte enthält daraus generierte Sprachdaten.
+Aktuelle deutsche Übersetzungen aus [locales/de.json](../locales/de.json) im Branch `feat/german-localization`. **301 Einträge**, davon **16 vom Nutzer bestätigt** (Stand: 07.11.2026). Das Verzeichnis `locales/` ist jetzt die führende Übersetzungsquelle; die JavaScript-Karte enthält daraus generierte Sprachdaten.
 
 **Feedback:** Im Pull Request unter **Files changed** eine konkrete Zeile kommentieren oder die CSV in Excel bearbeiten. Platzhalter wie `{time}` und `{value}` bitte unverändert lassen. Noch nicht geprüfte Einträge sind mit „Offen“ gekennzeichnet.
 
@@ -55,8 +55,8 @@ Aktuelle deutsche Übersetzungen aus [locales/de.json](../locales/de.json) im Br
 | ID | Englisch | Deutsch aktuell | Status | Hinweis |
 |---:|---|---|---|---|
 | 042 | Feels like | Gefühlt | Offen |  |
-| 043 | First light | Beginn der Morgendämmerung | Offen | Astronomisch: zivile Morgendämmerung; Begriff kontextabhängig. |
-| 044 | Last light | Ende der Abenddämmerung | Offen | Astronomisch: zivile Abenddämmerung; Begriff kontextabhängig. |
+| 043 | First light | Dämmerung | Bestätigt | Kurzlabel in der Sonnenansicht; Beginn der zivilen Morgendämmerung. Vom Nutzer am 07.11.2026 bestätigt. |
+| 044 | Last light | Dämmerung | Bestätigt | Kurzlabel in der Sonnenansicht; Ende der zivilen Abenddämmerung. Vom Nutzer am 07.11.2026 bestätigt. |
 | 045 | Total daylight | Tageslichtdauer | Offen |  |
 | 046 | Sunrise | Sonnenaufgang | Offen |  |
 | 047 | Sunset | Sonnenuntergang | Offen |  |
@@ -276,6 +276,74 @@ Aktuelle deutsche Übersetzungen aus [locales/de.json](../locales/de.json) im Br
 | 236 | northwest | Nordwesten | Offen |  |
 | 237 | Sun protection recommended. | Sonnenschutz empfohlen. | Offen |  |
 | 238 | Heat Warning (sample) | Hitzewarnung (Beispiel) | Offen |  |
+
+## Ergänzungen: UI-Texte und vollständige Sätze
+
+| ID | Englisch | Deutsch aktuell | Status | Hinweis |
+|---:|---|---|---|---|
+| 239 | {hours}h {minutes}m | {hours}h {minutes}min | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 240 | gusts {value} {unit} | Böen {value} {unit} | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 241 | Gusts: {value} {unit} | Böen: {value} {unit} | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 242 | Smoke {value} {unit} | Rauch {value} {unit} | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 243 | smoke {value} {unit} | Rauch {value} {unit} | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 244 | {amount} of snow | {amount} Schnee | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 245 | {amount} of rain | {amount} Regen | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 246 | {first} and {second} | {first} und {second} | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 247 | {amounts} fell | Gefallen sind {amounts} | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 248 | About {amount} of {precipitation} expected | Etwa {amount} {precipitation} erwartet | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 249 | {amounts} so far, about {amount} more expected | Bisher {amounts}, etwa {amount} zusätzlich erwartet | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 250 | {amounts} so far | Bisher {amounts} | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 251 | Up to a {value}% chance of rain around {time} | Regenwahrscheinlichkeit bis {value}% gegen {time} | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 252 | UV peaks at {value} ({level}) around {time} | Voraussichtlicher UV-Höchstwert {value} ({level}) gegen {time} | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 253 | UV peaking at {value} ({level}) around {time} | UV-Höchstwert {value} ({level}) gegen {time} | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 254 | {value}% humidity | {value}% Luftfeuchtigkeit | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 255 | {low}° to {high}° | {low}° bis {high}° | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 256 | Dew point: {range}. Conditions are {level} all day. | Taupunkt: {range}. Die Luft ist den ganzen Tag {level}. | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 257 | Dew point: {range}. Conditions range from {low} to {high}. | Taupunkt: {range}. Die Luft ist {low} bis {high}. | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 258 | dim | schwach | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 259 | strong | stark | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 260 | very strong | sehr stark | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 261 | Solar irradiance is currently {value} W/m² ({level}). | Aktuelle Sonneneinstrahlung: {value} W/m² ({level}). | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 262 | Solar irradiance is currently {value} W/m². | Aktuelle Sonneneinstrahlung: {value} W/m². | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 263 | Solar irradiance peaked at {value} W/m². | Höchste Sonneneinstrahlung: {value} W/m². | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 264 | Solar irradiance peaks at {value} W/m² today. | Höchste Sonneneinstrahlung heute: {value} W/m². | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 265 | Solar energy over the day: {value} kWh/m². | Eingestrahlte Energie über den Tag: {value} kWh/m². | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 266 | Solar energy so far: {value} kWh/m². | Bisher eingestrahlte Energie: {value} kWh/m². | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 267 | Last {weekday} | Letzten {weekday} | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 268 | day | Tag | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 269 | Cloud | Wolken | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 270 | Storm | Unwetter | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 271 | ⇠ drift | ⇠ Bewegung | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 272 | drift ⇢ | Bewegung ⇢ | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 273 | Pressure rising {value} over 3 h | Luftdruck in 3 Std. um {value} gestiegen | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 274 | Pressure falling {value} over 3 h | Luftdruck in 3 Std. um {value} gefallen | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 275 | {value} min | {value} min | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 276 | Same daylight as today | Gleiche Tageslänge wie heute | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 277 | {duration} more daylight than today | {duration} mehr Tageslicht als heute | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 278 | {duration} less daylight than today | {duration} weniger Tageslicht als heute | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 279 | Daylight remaining: {duration} | Verbleibendes Tageslicht: {duration} | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 280 | H | H | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 281 | L | T | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 282 | H {high} L {low} | H {high} T {low} | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 283 | H {high} | H {high} | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 284 | For the day as a whole: high {high}, low {low}, {amount} precipitation. | Für den ganzen Tag: Höchstwert {high}, Tiefstwert {low}, {amount} Niederschlag. | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 285 | For the day as a whole: high {high}, low {low}. | Für den ganzen Tag: Höchstwert {high}, Tiefstwert {low}. | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 286 | For the day as a whole: high {high}, {amount} precipitation. | Für den ganzen Tag: Höchstwert {high}, {amount} Niederschlag. | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 287 | For the day as a whole: high {high}. | Für den ganzen Tag: Höchstwert {high}. | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 288 | {day} isn't forecast hour by hour yet. | {day}: Noch keine stündliche Vorhersage verfügbar. | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 289 | {day} is only recorded from {time}. From then, a {range}. | {day}: Aufzeichnungen erst ab {time}. Seitdem: {range}. | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 290 | {day} is only forecast hour by hour to {time}. | {day}: Stündliche Vorhersage nur bis {time}. | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 291 | {weekday} night | {weekday} nachts | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 292 | US AQI (EPA) | US-AQI (EPA) | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 293 | Set "entity" to a weather entity, e.g. weather.home | Setze "entity" auf eine Wetter-Entität, z. B. weather.home | Offen | Neu ergänzt; noch nicht vom Nutzer geprüft. |
+| 294 | N | N | Offen | Windrichtung; nur die Anzeige wird übersetzt. |
+| 295 | NE | NO | Offen | Windrichtung; nur die Anzeige wird übersetzt. |
+| 296 | E | O | Offen | Windrichtung; nur die Anzeige wird übersetzt. |
+| 297 | SE | SO | Offen | Windrichtung; nur die Anzeige wird übersetzt. |
+| 298 | S | S | Offen | Windrichtung; nur die Anzeige wird übersetzt. |
+| 299 | SW | SW | Offen | Windrichtung; nur die Anzeige wird übersetzt. |
+| 300 | W | W | Offen | Windrichtung; nur die Anzeige wird übersetzt. |
+| 301 | NW | NW | Offen | Windrichtung; nur die Anzeige wird übersetzt. |
 
 ---
 

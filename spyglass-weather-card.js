@@ -58,8 +58,8 @@ const SPYGLASS_LOCALES = Object.freeze({
     " from the {direction}": " aus {direction}",
     "Wind is currently {speed} {unit}{direction}. ": "Aktuell weht der Wind mit {speed} {unit}{direction}. ",
     "Feels like": "Gefühlt",
-    "First light": "Beginn der Morgendämmerung",
-    "Last light": "Ende der Abenddämmerung",
+    "First light": "Dämmerung",
+    "Last light": "Dämmerung",
     "Total daylight": "Tageslichtdauer",
     "Sunrise": "Sonnenaufgang",
     "Sunset": "Sonnenuntergang",
@@ -253,7 +253,70 @@ const SPYGLASS_LOCALES = Object.freeze({
     "west": "Westen",
     "northwest": "Nordwesten",
     "Sun protection recommended.": "Sonnenschutz empfohlen.",
-    "Heat Warning (sample)": "Hitzewarnung (Beispiel)"
+    "Heat Warning (sample)": "Hitzewarnung (Beispiel)",
+    "{hours}h {minutes}m": "{hours}h {minutes}min",
+    "gusts {value} {unit}": "Böen {value} {unit}",
+    "Gusts: {value} {unit}": "Böen: {value} {unit}",
+    "Smoke {value} {unit}": "Rauch {value} {unit}",
+    "smoke {value} {unit}": "Rauch {value} {unit}",
+    "{amount} of snow": "{amount} Schnee",
+    "{amount} of rain": "{amount} Regen",
+    "{first} and {second}": "{first} und {second}",
+    "{amounts} fell": "Gefallen sind {amounts}",
+    "About {amount} of {precipitation} expected": "Etwa {amount} {precipitation} erwartet",
+    "{amounts} so far, about {amount} more expected": "Bisher {amounts}, etwa {amount} zusätzlich erwartet",
+    "{amounts} so far": "Bisher {amounts}",
+    "Up to a {value}% chance of rain around {time}": "Regenwahrscheinlichkeit bis {value}% gegen {time}",
+    "UV peaks at {value} ({level}) around {time}": "Voraussichtlicher UV-Höchstwert {value} ({level}) gegen {time}",
+    "UV peaking at {value} ({level}) around {time}": "UV-Höchstwert {value} ({level}) gegen {time}",
+    "{value}% humidity": "{value}% Luftfeuchtigkeit",
+    "{low}° to {high}°": "{low}° bis {high}°",
+    "Dew point: {range}. Conditions are {level} all day.": "Taupunkt: {range}. Die Luft ist den ganzen Tag {level}.",
+    "Dew point: {range}. Conditions range from {low} to {high}.": "Taupunkt: {range}. Die Luft ist {low} bis {high}.",
+    "dim": "schwach",
+    "strong": "stark",
+    "very strong": "sehr stark",
+    "Solar irradiance is currently {value} W/m² ({level}).": "Aktuelle Sonneneinstrahlung: {value} W/m² ({level}).",
+    "Solar irradiance is currently {value} W/m².": "Aktuelle Sonneneinstrahlung: {value} W/m².",
+    "Solar irradiance peaked at {value} W/m².": "Höchste Sonneneinstrahlung: {value} W/m².",
+    "Solar irradiance peaks at {value} W/m² today.": "Höchste Sonneneinstrahlung heute: {value} W/m².",
+    "Solar energy over the day: {value} kWh/m².": "Eingestrahlte Energie über den Tag: {value} kWh/m².",
+    "Solar energy so far: {value} kWh/m².": "Bisher eingestrahlte Energie: {value} kWh/m².",
+    "Last {weekday}": "Letzten {weekday}",
+    "day": "Tag",
+    "Cloud": "Wolken",
+    "Storm": "Unwetter",
+    "⇠ drift": "⇠ Bewegung",
+    "drift ⇢": "Bewegung ⇢",
+    "Pressure rising {value} over 3 h": "Luftdruck in 3 Std. um {value} gestiegen",
+    "Pressure falling {value} over 3 h": "Luftdruck in 3 Std. um {value} gefallen",
+    "{value} min": "{value} min",
+    "Same daylight as today": "Gleiche Tageslänge wie heute",
+    "{duration} more daylight than today": "{duration} mehr Tageslicht als heute",
+    "{duration} less daylight than today": "{duration} weniger Tageslicht als heute",
+    "Daylight remaining: {duration}": "Verbleibendes Tageslicht: {duration}",
+    "H": "H",
+    "L": "T",
+    "H {high} L {low}": "H {high} T {low}",
+    "H {high}": "H {high}",
+    "For the day as a whole: high {high}, low {low}, {amount} precipitation.": "Für den ganzen Tag: Höchstwert {high}, Tiefstwert {low}, {amount} Niederschlag.",
+    "For the day as a whole: high {high}, low {low}.": "Für den ganzen Tag: Höchstwert {high}, Tiefstwert {low}.",
+    "For the day as a whole: high {high}, {amount} precipitation.": "Für den ganzen Tag: Höchstwert {high}, {amount} Niederschlag.",
+    "For the day as a whole: high {high}.": "Für den ganzen Tag: Höchstwert {high}.",
+    "{day} isn't forecast hour by hour yet.": "{day}: Noch keine stündliche Vorhersage verfügbar.",
+    "{day} is only recorded from {time}. From then, a {range}.": "{day}: Aufzeichnungen erst ab {time}. Seitdem: {range}.",
+    "{day} is only forecast hour by hour to {time}.": "{day}: Stündliche Vorhersage nur bis {time}.",
+    "{weekday} night": "{weekday} nachts",
+    "US AQI (EPA)": "US-AQI (EPA)",
+    "Set \"entity\" to a weather entity, e.g. weather.home": "Setze \"entity\" auf eine Wetter-Entität, z. B. weather.home",
+    "N": "N",
+    "NE": "NO",
+    "E": "O",
+    "SE": "SO",
+    "S": "S",
+    "SW": "SW",
+    "W": "W",
+    "NW": "NW"
   },
   "en": {
     "night": "night",
@@ -493,7 +556,70 @@ const SPYGLASS_LOCALES = Object.freeze({
     "west": "west",
     "northwest": "northwest",
     "Sun protection recommended.": "Sun protection recommended.",
-    "Heat Warning (sample)": "Heat Warning (sample)"
+    "Heat Warning (sample)": "Heat Warning (sample)",
+    "{hours}h {minutes}m": "{hours}h {minutes}m",
+    "gusts {value} {unit}": "gusts {value} {unit}",
+    "Gusts: {value} {unit}": "Gusts: {value} {unit}",
+    "Smoke {value} {unit}": "Smoke {value} {unit}",
+    "smoke {value} {unit}": "smoke {value} {unit}",
+    "{amount} of snow": "{amount} of snow",
+    "{amount} of rain": "{amount} of rain",
+    "{first} and {second}": "{first} and {second}",
+    "{amounts} fell": "{amounts} fell",
+    "About {amount} of {precipitation} expected": "About {amount} of {precipitation} expected",
+    "{amounts} so far, about {amount} more expected": "{amounts} so far, about {amount} more expected",
+    "{amounts} so far": "{amounts} so far",
+    "Up to a {value}% chance of rain around {time}": "Up to a {value}% chance of rain around {time}",
+    "UV peaks at {value} ({level}) around {time}": "UV peaks at {value} ({level}) around {time}",
+    "UV peaking at {value} ({level}) around {time}": "UV peaking at {value} ({level}) around {time}",
+    "{value}% humidity": "{value}% humidity",
+    "{low}° to {high}°": "{low}° to {high}°",
+    "Dew point: {range}. Conditions are {level} all day.": "Dew point: {range}. Conditions are {level} all day.",
+    "Dew point: {range}. Conditions range from {low} to {high}.": "Dew point: {range}. Conditions range from {low} to {high}.",
+    "dim": "dim",
+    "strong": "strong",
+    "very strong": "very strong",
+    "Solar irradiance is currently {value} W/m² ({level}).": "Solar irradiance is currently {value} W/m² ({level}).",
+    "Solar irradiance is currently {value} W/m².": "Solar irradiance is currently {value} W/m².",
+    "Solar irradiance peaked at {value} W/m².": "Solar irradiance peaked at {value} W/m².",
+    "Solar irradiance peaks at {value} W/m² today.": "Solar irradiance peaks at {value} W/m² today.",
+    "Solar energy over the day: {value} kWh/m².": "Solar energy over the day: {value} kWh/m².",
+    "Solar energy so far: {value} kWh/m².": "Solar energy so far: {value} kWh/m².",
+    "Last {weekday}": "Last {weekday}",
+    "day": "day",
+    "Cloud": "Cloud",
+    "Storm": "Storm",
+    "⇠ drift": "⇠ drift",
+    "drift ⇢": "drift ⇢",
+    "Pressure rising {value} over 3 h": "Pressure rising {value} over 3 h",
+    "Pressure falling {value} over 3 h": "Pressure falling {value} over 3 h",
+    "{value} min": "{value} min",
+    "Same daylight as today": "Same daylight as today",
+    "{duration} more daylight than today": "{duration} more daylight than today",
+    "{duration} less daylight than today": "{duration} less daylight than today",
+    "Daylight remaining: {duration}": "Daylight remaining: {duration}",
+    "H": "H",
+    "L": "L",
+    "H {high} L {low}": "H {high} L {low}",
+    "H {high}": "H {high}",
+    "For the day as a whole: high {high}, low {low}, {amount} precipitation.": "For the day as a whole: high {high}, low {low}, {amount} precipitation.",
+    "For the day as a whole: high {high}, low {low}.": "For the day as a whole: high {high}, low {low}.",
+    "For the day as a whole: high {high}, {amount} precipitation.": "For the day as a whole: high {high}, {amount} precipitation.",
+    "For the day as a whole: high {high}.": "For the day as a whole: high {high}.",
+    "{day} isn't forecast hour by hour yet.": "{day} isn't forecast hour by hour yet.",
+    "{day} is only recorded from {time}. From then, a {range}.": "{day} is only recorded from {time}. From then, a {range}.",
+    "{day} is only forecast hour by hour to {time}.": "{day} is only forecast hour by hour to {time}.",
+    "{weekday} night": "{weekday} night",
+    "US AQI (EPA)": "US AQI (EPA)",
+    "Set \"entity\" to a weather entity, e.g. weather.home": "Set \"entity\" to a weather entity, e.g. weather.home",
+    "N": "N",
+    "NE": "NE",
+    "E": "E",
+    "SE": "SE",
+    "S": "S",
+    "SW": "SW",
+    "W": "W",
+    "NW": "NW"
   }
 });
 /* END GENERATED LOCALES */
@@ -505,6 +631,33 @@ const spyglassLanguage = (hass) => {
   return Object.prototype.hasOwnProperty.call(SPYGLASS_LOCALES, base) ? base : 'en';
 };
 const spyglassIsGerman = (hass) => spyglassLanguage(hass) === 'de';
+const spyglassLocaleKey = (hass) => JSON.stringify([
+  hass?.locale?.language || hass?.language || 'en',
+  hass?.locale?.time_format,
+  hass?.locale?.number_format,
+]);
+const spyglassNumberFormatter = (hass) => {
+  const format = hass?.locale?.number_format;
+  let locale = String(hass?.locale?.language || hass?.language || 'en').trim().replace(/_/g, '-');
+  switch (format) {
+    case 'comma_decimal': locale = 'en-US'; break;
+    case 'decimal_comma': locale = 'de-DE'; break;
+    case 'space_comma': locale = 'fr-FR'; break;
+    case 'quote_decimal': locale = 'de-CH'; break;
+    case 'none': locale = 'en-US'; break;
+    case 'system': locale = undefined; break;
+  }
+  const formatters = new Map();
+  return (value, maximumFractionDigits = 20, minimumFractionDigits = 0) => {
+    if (value == null || value === '' || !Number.isFinite(Number(value))) return '–';
+    const key = maximumFractionDigits + '|' + minimumFractionDigits;
+    if (!formatters.has(key)) formatters.set(key, new Intl.NumberFormat(locale, {
+      maximumFractionDigits, minimumFractionDigits, useGrouping: format !== 'none',
+    }));
+    const number = Number(value);
+    return formatters.get(key).format(number === 0 ? 0 : number);
+  };
+};
 const spyglassT = (hass, text) => {
   const values = SPYGLASS_LOCALES[spyglassLanguage(hass)];
   if (Object.prototype.hasOwnProperty.call(values, text)) return values[text];
@@ -843,6 +996,11 @@ function update(hass, entity) {
   const card = this.card;
   const tr = (text) => spyglassT(hass, text);
   const tf = (text, values) => spyglassTf(hass, text, values);
+  const localeKey = spyglassLocaleKey(hass);
+  const fmtNum = spyglassNumberFormatter(hass);
+  const fmtInt = (value) => fmtNum(Math.round(value), 0);
+  const fmtFixed = (value, digits) => fmtNum(Number(value).toFixed(digits), digits, digits);
+  const fmtTemp = (value) => value == null || !Number.isFinite(Number(value)) ? '–' : fmtInt(value) + '°';
   const cfg = Object.assign({ type: 'daily', max_items: 'all', min_item_width: 64, sun_entity: 'sun.sun' }, this.options || {});
   const box = card.querySelector('.wx-box');
   if (box) box.style.setProperty('--spyglass-feels-label', JSON.stringify(tr('Feels like')));
@@ -894,7 +1052,7 @@ function update(hass, entity) {
     }
     return g;
   };
-  const fmtPrecip = (v) => (/in/i.test(precipU) ? Number(v).toFixed(2) : v < 10 ? Number(v).toFixed(1) : String(Math.round(v))) + ' ' + precipU;
+  const fmtPrecip = (v) => (/in/i.test(precipU) ? fmtFixed(v, 2) : v < 10 ? fmtFixed(v, 1) : fmtInt(v)) + ' ' + precipU;
   const W = window;
 
   /* ---- shared helpers, built once per page ---- */
@@ -1055,7 +1213,6 @@ function update(hass, entity) {
     /* cloud cover per condition: 0 none, 1 scattered, 2 broken, 3 overcast */
     L.cover = (c) => ({ cloudy: 3, partlycloudy: 1, 'partlycloudy-night': 1, rainy: 3, pouring: 3, lightning: 3,
       'lightning-rainy': 3, snowy: 2, 'snowy-rainy': 2, hail: 2, windy: 2, 'windy-variant': 2, exceptional: 0, fog: 0 })[c] || 0;
-    L.t = (v) => (v == null || isNaN(v)) ? '–' : Math.round(v) + '°';
     L.dkey = (d) => d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate();
     /* the artwork as a plain data URI, for an SVG <image> */
     L.artUrl = (k) => { const u = L.art(k); return u ? u.slice(5, -2) : ''; };
@@ -1167,7 +1324,7 @@ function update(hass, entity) {
     return sv;
   };
   const fmtTime = (t) => new Date(t).toLocaleTimeString(lang, { hour: 'numeric', minute: '2-digit', hour12: h12 });
-  const fmtDur = (ms) => { const m = Math.max(0, Math.round(ms / 6e4)); return Math.floor(m / 60) + 'h ' + (m % 60) + 'm'; };
+  const fmtDur = (ms) => { const m = Math.max(0, Math.round(ms / 6e4)); return tf('{hours}h {minutes}m', { hours: fmtInt(Math.floor(m / 60)), minutes: fmtInt(m % 60) }); };
   /* sun arc: a 24 h cosine whose zero crossings sit on sunrise/sunset,
      shaded above the horizon, dotted through twilight, with the sun where it is now */
   const sunGraph = (T, Wd, H) => {
@@ -1249,7 +1406,7 @@ function update(hass, entity) {
       const ml = document.createElement('div'); ml.className = 'wx-moon';
       wrap.insertBefore(ml, wrap.firstChild);
       ml.appendChild(moonIcon(Mn.k, Mn.waxing, 26));
-      L.el('span', 'wx-moon-t', ml).textContent = tr(Mn.name) + ' · ' + Math.round(Mn.k * 100) + tr('% lit')
+      L.el('span', 'wx-moon-t', ml).textContent = tr(Mn.name) + ' · ' + fmtInt(Mn.k * 100) + tr('% lit')
         + (nx && Mn.name !== nx[1] ? ' · ' + tr(nx[1]) + ' ' + when : '');
     }
     return wrap;
@@ -1387,7 +1544,7 @@ function update(hass, entity) {
     /* grid + scale */
     for (let v = 0; v <= ymax; v += step) {
       svg.appendChild(el('line', { x1: left, y1: y(v), x2: Wd - right, y2: y(v), class: 'wx-w-grid' }));
-      const t = el('text', { x: Wd - right + 8, y: y(v) + 4, class: 'wx-w-scale' }); t.textContent = v; svg.appendChild(t);
+      const t = el('text', { x: Wd - right + 8, y: y(v) + 4, class: 'wx-w-scale' }); t.textContent = fmtNum(v); svg.appendChild(t);
       t.style.fill = scaleCol(v);
     }
     [6, 12, 18].forEach((hh) => svg.appendChild(el('line', { x1: x(day0 + hh * 36e5), y1: top - 4, x2: x(day0 + hh * 36e5), y2: bottom, class: 'wx-w-vgrid' })));
@@ -1432,9 +1589,9 @@ function update(hass, entity) {
       fmt: (v, t2) => {
         let g2 = null;
         gust.forEach((q) => { if (!g2 || Math.abs(q[0] - t2) < Math.abs(g2[0] - t2)) g2 = q; });
-        const gs = g2 && Math.abs(g2[0] - t2) < 5400e3 && g2[1] > v + 0.5 ? ' · gusts ' + Math.round(g2[1]) + ' ' + u : '';
+        const gs = g2 && Math.abs(g2[0] - t2) < 5400e3 && g2[1] > v + 0.5 ? ' · ' + tf('gusts {value} {unit}', { value: fmtInt(g2[1]), unit: u }) : '';
         /* both numbers carry the unit: with it only on one, the other reads as bare */
-        return Math.round(v) + ' ' + u + gs + ' · ' + new Date(t2).toLocaleTimeString(lang, { hour: 'numeric', minute: '2-digit', hour12: h12 });
+        return fmtInt(v) + ' ' + u + gs + ' · ' + new Date(t2).toLocaleTimeString(lang, { hour: 'numeric', minute: '2-digit', hour12: h12 });
       } };
     const wrap = document.createElement('div'); wrap.className = 'wx-sun-wrap wx-wind-wrap';
     /* summary line above the chart, as in the hourly view */
@@ -1443,9 +1600,9 @@ function update(hass, entity) {
     wrap.appendChild(svg);
     if (vals.length) {
       const dirName = { N: 'north', NE: 'northeast', E: 'east', SE: 'southeast', S: 'south', SW: 'southwest', W: 'west', NW: 'northwest' };
-      let txt = today2 && S.windNow ? tf('Wind is currently {speed} {unit}{direction}. ', { speed: Math.round(S.windNow.v), unit: u, direction: S.windNow.dir ? tf(' from the {direction}', { direction: tr(dirName[S.windNow.dir]) }) : '' }) : '';
-      txt += tf(today2 ? 'Today, wind speeds are {low} to {high} {unit}' : pastDay ? 'Wind speeds were {low} to {high} {unit}' : 'Wind speeds are {low} to {high} {unit}', { low: Math.round(Math.min(...vals)), high: Math.round(Math.max(...vals)), unit: u });
-      if (gv.length) txt += tf(', with gusts up to {gust} {unit}', { gust: Math.round(Math.max(...gv)), unit: u });
+      let txt = today2 && S.windNow ? tf('Wind is currently {speed} {unit}{direction}. ', { speed: fmtInt(S.windNow.v), unit: u, direction: S.windNow.dir ? tf(' from the {direction}', { direction: tr(dirName[S.windNow.dir]) }) : '' }) : '';
+      txt += tf(today2 ? 'Today, wind speeds are {low} to {high} {unit}' : pastDay ? 'Wind speeds were {low} to {high} {unit}' : 'Wind speeds are {low} to {high} {unit}', { low: fmtInt(Math.min(...vals)), high: fmtInt(Math.max(...vals)), unit: u });
+      if (gv.length) txt += tf(', with gusts up to {gust} {unit}', { gust: fmtInt(Math.max(...gv)), unit: u });
       rows.textContent = txt + '.';
     }
     return wrap;
@@ -1525,11 +1682,11 @@ function update(hass, entity) {
       if (b[0] >= ymax) return;
       const yt = y(b[0]);
       svg.appendChild(el('line', { x1: 0, y1: yt, x2: Wd - right, y2: yt, class: 'wx-w-grid' }));
-      const lab = el('text', { x: Wd - right + 8, y: yt + 4, class: 'wx-w-scale' }); lab.textContent = b[0]; svg.appendChild(lab);
+      const lab = el('text', { x: Wd - right + 8, y: yt + 4, class: 'wx-w-scale' }); lab.textContent = fmtNum(b[0]); svg.appendChild(lab);
       /* a threshold reads as the top of the band beneath it: "50" is where green ends */
       if (b[0] > 0) lab.style.fill = bright[bandOf(b[0] - 0.01)[2]];
     });
-    const topLab = el('text', { x: Wd - right + 8, y: top + 4, class: 'wx-w-scale' }); topLab.textContent = ymax; svg.appendChild(topLab);
+    const topLab = el('text', { x: Wd - right + 8, y: top + 4, class: 'wx-w-scale' }); topLab.textContent = fmtNum(ymax); svg.appendChild(topLab);
     topLab.style.fill = bright[bandOf(ymax - 0.01)[2]];
     /* ticks at midnight, 6 AM, noon and 6 PM of that day (local, so DST days work) */
     const ticks = [0, 6, 12, 18].map((h) => { const d = new Date(t0); d.setHours(h, 0, 0, 0); return d.getTime(); }).filter((t) => t < tRight);
@@ -1591,7 +1748,7 @@ function update(hass, entity) {
       const labS = off < 0
         ? el('text', { x: Math.max(40, Math.min(Wd - right - 40, endS[0])), y: endS[1] - 7, class: 'wx-pop-label wx-smoke-label', 'text-anchor': 'middle' })
         : el('text', { x: Math.max(40, endS[0] - 12), y: endS[1] - 7, class: 'wx-pop-label wx-smoke-label', 'text-anchor': 'end' });
-      labS.textContent = 'Smoke ' + Math.round(smPts[iS][1]) + ' ' + smU;
+      labS.textContent = tf('Smoke {value} {unit}', { value: fmtInt(smPts[iS][1]), unit: smU });
       svg.appendChild(labS);
     }
     const smokeAt = (t2) => { let b2 = null; smPts.forEach((q) => { if (q[0] <= t2) b2 = q; }); return b2; };
@@ -1610,7 +1767,7 @@ function update(hass, entity) {
     svg.__scrub = { P: P, pts: pts, top: top, bottom: bottom, right: right, Wd: Wd,
       fmt: (v, t2) => {
         const sm2 = smShown ? smokeAt(t2) : null;
-        return Math.round(v) + (sm2 ? ' · smoke ' + Math.round(sm2[1]) + ' ' + smU : '') + ' · ' + new Date(t2).toLocaleTimeString(lang, { hour: 'numeric', minute: '2-digit', hour12: h12 });
+        return fmtInt(v) + (sm2 ? ' · ' + tf('smoke {value} {unit}', { value: fmtInt(sm2[1]), unit: smU }) : '') + ' · ' + new Date(t2).toLocaleTimeString(lang, { hour: 'numeric', minute: '2-digit', hour12: h12 });
       } };
     const wrap = document.createElement('div'); wrap.className = 'wx-sun-wrap wx-aqi-wrap';
     /* the sentence sits above the chart, like the other views; the bands are already
@@ -1620,16 +1777,16 @@ function update(hass, entity) {
     if (off < 0) {
       /* a past day: its high and low, and smoke if there was any worth noting; the fire
          risk is only known as it is now */
-      let t = pts.length > 1 ? aqiScale.name + ' ' + hiLoAt(pts, (v) => String(Math.round(v))) + '.' : '';
-      if (smShown) { const pk = smPts.reduce((m2, q) => (q[1] > m2[1] ? q : m2), smPts[0]); t += ' ' + tf('Smoke peaked at {value} {unit} around {time}.', { value: Math.round(pk[1]), unit: smU, time: new Date(Math.round(pk[0] / 36e5) * 36e5).toLocaleTimeString(lang, { hour: 'numeric', hour12: h12 }) }); }
+      let t = pts.length > 1 ? aqiScale.name + ' ' + hiLoAt(pts, (v) => fmtInt(v)) + '.' : '';
+      if (smShown) { const pk = smPts.reduce((m2, q) => (q[1] > m2[1] ? q : m2), smPts[0]); t += ' ' + tf('Smoke peaked at {value} {unit} around {time}.', { value: fmtInt(pk[1]), unit: smU, time: new Date(Math.round(pk[0] / 36e5) * 36e5).toLocaleTimeString(lang, { hour: 'numeric', hour12: h12 }) }); }
       txt.textContent = t.trim();
     } else if (S.aqiNow != null) {
       const b = bandOf(S.aqiNow);
       const vals = pts.map((p) => p[1]);
-      let t = tf('{scale} is {value}, {quality}.', { scale: aqiScale.name, value: Math.round(S.aqiNow), quality: String(b[3]).toLowerCase() });
-      if (vals.length > 1) t += ' ' + tf('Today, a {range}.', { range: hiLoAt(pts, (v) => String(Math.round(v))) });
+      let t = tf('{scale} is {value}, {quality}.', { scale: aqiScale.name, value: fmtInt(S.aqiNow), quality: String(b[3]).toLowerCase() });
+      if (vals.length > 1) t += ' ' + tf('Today, a {range}.', { range: hiLoAt(pts, (v) => fmtInt(v)) });
       /* smoke and fire risk, which used to be chips of their own */
-      if (smNow != null && smNow >= 5) t += ' ' + tf('Smoke is {value} {unit}, {quality}.', { value: Math.round(smNow), unit: smU, quality: tr(['light', 'moderate', 'heavy', 'very heavy', 'hazardous'][[12, 35, 55, 150].filter((e2) => smNow > e2).length]) });
+      if (smNow != null && smNow >= 5) t += ' ' + tf('Smoke is {value} {unit}, {quality}.', { value: fmtInt(smNow), unit: smU, quality: tr(['light', 'moderate', 'heavy', 'very heavy', 'hazardous'][[12, 35, 55, 150].filter((e2) => smNow > e2).length]) });
       const fE = (cfg.details || {}).fire && hass.states[(cfg.details || {}).fire];
       /* the risk level only: the index behind it is a 0-100 weather-only number that says
          nothing more to a reader than the level already does */
@@ -1935,7 +2092,7 @@ function update(hass, entity) {
     /* scale: a line every 3 degrees, labelled */
     for (let v = ymin; v <= ymax; v += 3) {
       svg.appendChild(el('line', { x1: 0, y1: y(v), x2: Wd - right, y2: y(v), class: 'wx-w-grid' }));
-      const t2 = el('text', { x: Wd - right + 8, y: y(v) + 4, class: 'wx-w-scale' }); t2.textContent = Math.round(v) + '°'; svg.appendChild(t2);
+      const t2 = el('text', { x: Wd - right + 8, y: y(v) + 4, class: 'wx-w-scale' }); t2.textContent = fmtInt(v) + '°'; svg.appendChild(t2);
     }
     /* gridlines on real clock hours (every 6 h from midnight) inside the window */
     const ticks = [];
@@ -2092,7 +2249,7 @@ function update(hass, entity) {
     /* drag to read: temperature at that hour, with the chance of rain when there is any */
     svg.__scrub = { P: P, pts: pts, top: top, bottom: bottom, right: right, Wd: Wd,
       fmt: (v, t2) => {
-        let out = L.t(v);
+        let out = fmtTemp(v);
         let best = null;
         popAll.forEach((q) => { if (!best || Math.abs(q[0] - t2) < Math.abs(best[0] - t2)) best = q; });
         /* how hard it was raining then, or is expected to be */
@@ -2103,7 +2260,7 @@ function update(hass, entity) {
           if (t2 >= q0[0] && t2 <= q1[0]) { r2 = q0[1] + (q1[1] - q0[1]) * (t2 - q0[0]) / Math.max(1, q1[0] - q0[0]); break; }
         }
         if (r2 != null && rainShown(r2)) out += ' · ' + rainFmt(r2) + '/h';
-        if (t2 > now && best && Math.abs(best[0] - t2) < 5400e3 && best[1] >= 5) out += ' · ' + Math.round(best[1]) + '%';
+        if (t2 > now && best && Math.abs(best[0] - t2) < 5400e3 && best[1] >= 5) out += ' · ' + fmtInt(best[1]) + '%';
         return out + ' · ' + new Date(t2).toLocaleTimeString(lang, { hour: 'numeric', minute: '2-digit', hour12: h12 });
       } };
     /* the day's high and low, marked on the curve */
@@ -2115,7 +2272,7 @@ function update(hass, entity) {
         /* the high or low can fall on the first or last point — a centred label would be
            half cut off there, so it is held inside the plot the way the peak-% one is */
         const lab = el('text', { x: Math.max(9, Math.min(Wd - right - 9, x(m[0][0]))), y: y(m[0][1]) + m[2], class: 'wx-t-hl', 'text-anchor': 'middle' });
-        lab.textContent = m[1]; svg.appendChild(lab);
+        lab.textContent = tr(m[1]); svg.appendChild(lab);
       });
     }
     if (today) {
@@ -2225,7 +2382,7 @@ function update(hass, entity) {
     if (pts.length > 1) {
       const hiP2 = pts.reduce((m, p) => p[1] > m[1] ? p : m, pts[0]);
       const loP2 = pts.reduce((m, p) => p[1] < m[1] ? p : m, pts[0]);
-      sents.push(tf('High of {high} around {highTime}, low of {low} around {lowTime}', { high: L.t(hiP2[1]), highTime: hr2(hiP2[0]), low: L.t(loP2[1]), lowTime: hr2(loP2[0]) }));
+      sents.push(tf('High of {high} around {highTime}, low of {low} around {lowTime}', { high: fmtTemp(hiP2[1]), highTime: hr2(hiP2[0]), low: fmtTemp(loP2[1]), lowTime: hr2(loP2[0]) }));
     }
     /* rain: fallen and expected, from the same totals as the rain line, and the peak chance */
     {
@@ -2235,20 +2392,24 @@ function update(hass, entity) {
       /* snow counts once it is a tenth of the smallest usual depth; the forecast's amount
          covers rain and snow together, so it is named after what is expected */
       const snowTxt = snowTot > 0 && precipBase(snowTot, snowU) >= 1
-        ? (snowTot < 10 ? snowTot.toFixed(1) : String(Math.round(snowTot))) + ' ' + snowU + ' of snow' : '';
+        ? tf('{amount} of snow', { amount: (snowTot < 10 ? fmtFixed(snowTot, 1) : fmtInt(snowTot)) + ' ' + snowU }) : '';
       const snowAhead = hrs.some((i) => Date.parse(i.datetime) > now - 18e5 && /snow/.test(i.condition || ''));
       const expNoun = snowAhead ? 'rain and snow' : 'rain';
-      const fallen = [rainShown(rainTot) ? rainFmt(rainTot) + ' of rain' : '', snowTxt].filter(Boolean);
-      if (dayOff < 0) { if (fallen.length) rt = fallen.join(' and ') + ' fell'; }
-      else if (dayOff > 0) { if (rainShown(rainMore)) rt = 'About ' + rainFmt(rainMore) + ' of ' + expNoun + ' expected'; }
-      else if (fallen.length) rt = fallen.join(' and ') + ' so far' + (rainShown(rainMore) ? ', about ' + rainFmt(rainMore) + ' more expected' : '');
-      else if (rainShown(rainMore)) rt = 'About ' + rainFmt(rainMore) + ' of ' + expNoun + ' expected';
+      const fallen = [rainShown(rainTot) ? tf('{amount} of rain', { amount: rainFmt(rainTot) }) : '', snowTxt].filter(Boolean);
+      const amounts = fallen.length === 2 ? tf('{first} and {second}', { first: fallen[0], second: fallen[1] }) : fallen[0];
+      const expected = () => tf('About {amount} of {precipitation} expected', { amount: rainFmt(rainMore), precipitation: tr(expNoun) });
+      if (dayOff < 0) { if (fallen.length) rt = tf('{amounts} fell', { amounts }); }
+      else if (dayOff > 0) { if (rainShown(rainMore)) rt = expected(); }
+      else if (fallen.length) rt = rainShown(rainMore)
+        ? tf('{amounts} so far, about {amount} more expected', { amounts, amount: rainFmt(rainMore) })
+        : tf('{amounts} so far', { amounts });
+      else if (rainShown(rainMore)) rt = expected();
+      if (rt) sents.push(rt);
       const popMax = popAll.length ? Math.max(...popAll.map((p) => p[1])) : 0;
       if (popMax >= 20) {
         const at2 = popAll.reduce((m, p) => p[1] > m[1] ? p : m, popAll[0]);
-        rt = rt ? rt + ', with up to a ' + Math.round(popMax) + '% chance around ' + hr2(at2[0]) : 'Up to a ' + Math.round(popMax) + '% chance of rain around ' + hr2(at2[0]);
+        sents.push(tf('Up to a {value}% chance of rain around {time}', { value: fmtInt(popMax), time: hr2(at2[0]) }));
       }
-      if (rt) sents.push(rt);
     }
     /* from the hours still ahead: gusts once they are strong (the threshold converted to
        the wind unit shown), and UV only once it is high — 6 or more, where sun protection
@@ -2258,10 +2419,10 @@ function update(hass, entity) {
       const kmhOf = { mph: 1.609, 'm/s': 3.6, kn: 1.852, 'ft/s': 1.097 }[wu] || 1;
       const ahead = hrs.filter((i) => Date.parse(i.datetime) > now - 18e5);
       const gPk = ahead.reduce((m, i) => (Number(i.wind_gust_speed) > (m ? Number(m.wind_gust_speed) : -1) ? i : m), null);
-      if (gPk && Number(gPk.wind_gust_speed) * kmhOf >= 30) sents.push(tf('Gusts up to {value} {unit} around {time}', { value: Math.round(Number(gPk.wind_gust_speed)), unit: wu, time: hr2(Date.parse(gPk.datetime)) }));
+      if (gPk && Number(gPk.wind_gust_speed) * kmhOf >= 30) sents.push(tf('Gusts up to {value} {unit} around {time}', { value: fmtInt(Number(gPk.wind_gust_speed)), unit: wu, time: hr2(Date.parse(gPk.datetime)) }));
       const uPk = ahead.reduce((m, i) => (Number(i.uv_index) > (m ? Number(m.uv_index) : -1) ? i : m), null);
       const uvPk = uPk ? Number(uPk.uv_index) : 0;
-      if (uvPk >= 6) sents.push(tf('UV {form} at {value} ({level}) around {time}', { form: tr(dayOff > 0 ? 'peaks' : 'peaking'), value: Math.round(uvPk), level: tr(uvPk >= 11 ? 'extreme' : uvPk >= 8 ? 'very high' : 'high'), time: hr2(Date.parse(uPk.datetime)) }));
+      if (uvPk >= 6) sents.push(tf(dayOff > 0 ? 'UV peaks at {value} ({level}) around {time}' : 'UV peaking at {value} ({level}) around {time}', { value: fmtInt(uvPk), level: tr(uvPk >= 11 ? 'extreme' : uvPk >= 8 ? 'very high' : 'high'), time: hr2(Date.parse(uPk.datetime)) }));
     }
     foot.textContent = sents.length ? sents.map((t2) => cap(t2) + '.').join(' ') : '';
     return wrap;
@@ -2366,23 +2527,25 @@ function update(hass, entity) {
     };
     return dayGraph({
       id: 'd', day0: dayStartOf(off), pts: pts, nowVal: off ? null : S.dewNow, bands: dewBands, ymin: ymin, ymax: ymax, tintScale: 'blend',
-      ticks: ticks, fmt: (v) => Math.round(v) + '°',
+      ticks: ticks, fmt: (v) => fmtInt(v) + '°',
       scrubFmt: (v, t2) => {
         const rh = humAt(t2);
-        return Math.round(v) + '°' + (rh != null ? ' · ' + Math.round(rh) + '% humidity' : '') + ' · ' + new Date(t2).toLocaleTimeString(lang, { hour: 'numeric', minute: '2-digit', hour12: h12 });
+        return fmtInt(v) + '°' + (rh != null ? ' · ' + tf('{value}% humidity', { value: fmtInt(rh) }) : '') + ' · ' + new Date(t2).toLocaleTimeString(lang, { hour: 'numeric', minute: '2-digit', hour12: h12 });
       },
       summary: (v2, colourOf, P3) => {
-        const rng = v2.length > 1 ? Math.round(Math.min(...v2)) + '° to ' + Math.round(Math.max(...v2)) + '°' : '';
+        const rng = v2.length > 1 ? tf('{low}° to {high}°', { low: fmtInt(Math.min(...v2)), high: fmtInt(Math.max(...v2)) }) : '';
         /* any other day: its high and low, and how that feels — the words for the low and
            the high, or one word when the whole day sits in the same band */
         if (off) {
-          const r3 = hiLoAt(P3, (v) => Math.round(v) + '°');
+          const r3 = hiLoAt(P3, (v) => fmtInt(v) + '°');
           if (!r3) return '';
           const wLo = dewLabel(Math.min(...v2)), wHi = dewLabel(Math.max(...v2));
-          return 'Dew point ' + r3 + '. ' + (wLo === wHi ? wLo + ' all day.' : wLo + ' to ' + wHi.toLowerCase() + '.');
+          return wLo === wHi
+            ? tf('Dew point: {range}. Conditions are {level} all day.', { range: r3, level: wLo.toLowerCase() })
+            : tf('Dew point: {range}. Conditions range from {low} to {high}.', { range: r3, low: wLo.toLowerCase(), high: wHi.toLowerCase() });
         }
         if (S.dewNow == null) return '';
-        let t = tf('Dew point is currently {value}°, {level}.', { value: Math.round(S.dewNow), level: dewLabel(S.dewNow).toLowerCase() });
+        let t = tf('Dew point is currently {value}°, {level}.', { value: fmtInt(S.dewNow), level: dewLabel(S.dewNow).toLowerCase() });
         if (rng) t += ' ' + tf('Today it ranges from {range}.', { range: rng });
         /* within about 2 °C of the temperature the air is close to saturated */
         const tNow = Number(a.temperature);
@@ -2397,7 +2560,7 @@ function update(hass, entity) {
   /* Sunlight reaching the ground, in W/m2 — the number solar output follows. History
      only: Home Assistant's forecast has no irradiance field, so today's curve ends at
      now, and the arrows page back through recorded days but not ahead. */
-  const solarBands = [[0, 100, '#6E86A8', 'dim'], [100, 300, '#F2D34B', 'moderate'], [300, 600, '#F5A05A', 'strong'], [600, 1200, '#FF9500', 'very strong']];
+  const solarBands = [[0, 100, '#6E86A8', 'dim'], [100, 300, '#F2D34B', 'moderate'], [300, 600, '#F5A05A', 'strong'], [600, 1200, '#FF9500', 'very strong']].map((b) => [b[0], b[1], b[2], tr(b[3])]);
   const solarGraph = (Wd, H, off) => {
     off = Math.min(0, off || 0);
     const day0 = dayStartOf(off);
@@ -2409,18 +2572,20 @@ function update(hass, entity) {
       /* the ticks are quarters of the axis while the bands sit at 100/300/600, so they
          rarely coincide — tinting them would just repeat a colour. Plain labels here. */
       id: 's', day0: day0, pts: pts, nowVal: off ? null : S.solarNow, bands: solarBands, ymax: ymax,
-      ticks: [0, ymax / 4, ymax / 2, ymax * 0.75, ymax], fmt: (v) => Math.round(v),
+      ticks: [0, ymax / 4, ymax / 2, ymax * 0.75, ymax], fmt: (v) => fmtInt(v),
       summary: () => {
         const bits = [];
-        if (!off && S.solarNow != null) bits.push(Math.round(S.solarNow) + ' W/m² right now' + (S.solarNow > 0 ? ', ' + (solarBands.find((b) => S.solarNow < b[1]) || solarBands[3])[3] + ' sun' : ''));
-        if (peak > 0) bits.push((off ? 'peaked at ' : 'peaking at ') + Math.round(peak) + ' W/m²' + (off ? '' : ' today'));
+        if (!off && S.solarNow != null) bits.push(S.solarNow > 0
+          ? tf('Solar irradiance is currently {value} W/m² ({level}).', { value: fmtInt(S.solarNow), level: (solarBands.find((b) => S.solarNow < b[1]) || solarBands[3])[3] })
+          : tf('Solar irradiance is currently {value} W/m².', { value: fmtInt(S.solarNow) }));
+        if (peak > 0) bits.push(tf(off ? 'Solar irradiance peaked at {value} W/m².' : 'Solar irradiance peaks at {value} W/m² today.', { value: fmtInt(peak) }));
         if (pts.length > 1) {
           /* rough energy: the area under the curve, in kWh per square metre */
           let wh = 0;
           for (let i = 1; i < pts.length; i++) wh += (pts[i][1] + pts[i - 1][1]) / 2 * (pts[i][0] - pts[i - 1][0]) / 36e5;
-          if (wh >= 50) bits.push((wh / 1000).toFixed(1) + ' kWh/m² ' + (off ? 'over the day' : 'so far'));
+          if (wh >= 50) bits.push(tf(off ? 'Solar energy over the day: {value} kWh/m².' : 'Solar energy so far: {value} kWh/m².', { value: fmtFixed(wh / 1000, 1) }));
         }
-        return bits.length ? bits.join(', ').replace(/^./, (c2) => c2.toUpperCase()) + '.' : '';
+        return bits.join(' ');
       }
     }, Wd, H);
   };
@@ -2431,13 +2596,13 @@ function update(hass, entity) {
     const ymax = Math.max(11, Math.ceil(Math.max(0, ...pts.map((p) => p[1])) + 1));
     return dayGraph({
       id: 'u', day0: dayStartOf(off), pts: pts, nowVal: off ? null : S.uvNow, bands: uvBands, ymax: ymax, tintScale: true,
-      ticks: [0, 3, 6, 8, 11].concat(ymax > 11 ? [ymax] : []), fmt: (v) => v,
+      ticks: [0, 3, 6, 8, 11].concat(ymax > 11 ? [ymax] : []), fmt: (v) => fmtNum(v),
       summary: (vals, colourOf) => {
-        if (off) { const mx2 = vals.length ? Math.max(...vals) : 0; return mx2 ? tf(off < 0 ? 'UV peaked at {value} ({level}).' : 'UV peaks at {value} ({level}).', { value: Math.round(mx2), level: colourOf(mx2)[3] }) : ''; }
+        if (off) { const mx2 = vals.length ? Math.max(...vals) : 0; return mx2 ? tf(off < 0 ? 'UV peaked at {value} ({level}).' : 'UV peaks at {value} ({level}).', { value: fmtInt(mx2), level: colourOf(mx2)[3] }) : ''; }
         if (S.uvNow == null) return '';
-        let t = tf('UV index is currently {value}, {level}.', { value: Math.round(S.uvNow), level: colourOf(S.uvNow)[3] });
-        if (vals.length > 1) { const mx = Math.max(...vals); t += ' ' + tf("Today's peak is {value} ({level}).", { value: Math.round(mx), level: colourOf(mx)[3] }); }
-        if (S.uvNow >= 3) t += ' Sun protection recommended.';
+        let t = tf('UV index is currently {value}, {level}.', { value: fmtInt(S.uvNow), level: colourOf(S.uvNow)[3] });
+        if (vals.length > 1) { const mx = Math.max(...vals); t += ' ' + tf("Today's peak is {value} ({level}).", { value: fmtInt(mx), level: colourOf(mx)[3] }); }
+        if (S.uvNow >= 3) t += ' ' + tr('Sun protection recommended.');
         return t;
       }
     }, Wd, H);
@@ -2459,9 +2624,22 @@ function update(hass, entity) {
   const type = cfg.type || 'daily';
   const unit = a.temperature_unit || '';
   const loc = hass.locale || {};
-  const lang = loc.language || undefined;
+  const lang = loc.language || hass.language || undefined;
   const h12 = loc.time_format === '12' ? true : loc.time_format === '24' ? false : undefined;
   const time24 = h12 === false || (h12 !== true && new Intl.DateTimeFormat(lang, { hour: 'numeric' }).resolvedOptions().hour12 === false);
+  const dayLabel = (off, label) => {
+    if (off === 0) return tr(label || 'Today');
+    if (off === 1) return tr('Tomorrow');
+    if (off === -1) return tr('Yesterday');
+    const date = new Date(dayStartOf(off));
+    if (Math.abs(off) < 7) {
+      const weekday = date.toLocaleDateString(lang, { weekday: 'long' });
+      return off < 0 ? tf('Last {weekday}', { weekday }) : weekday;
+    }
+    const format = { weekday: 'short', month: 'short', day: 'numeric' };
+    if (date.getFullYear() !== new Date().getFullYear()) format.year = 'numeric';
+    return date.toLocaleDateString(lang, format);
+  };
 
   /* ---- size: the card element reports its grid size itself (getGridOptions); here it
      asks hui-card to re-read it, and pins the card's height to the grid cell ---- */
@@ -2596,7 +2774,7 @@ function update(hass, entity) {
     S.fc.addEventListener('click', (e) => {
       const cell = e.target.closest && e.target.closest('.wx-item.wx-tappable[data-day]');
       if (!cell || type === 'hourly') return;   /* a day always opens its hours */
-      S.view = { day: cell.dataset.day, label: cell.dataset.label, at: Date.now() };
+      S.view = { day: cell.dataset.day, at: Date.now() };
       S.sig = null;
       if (S.draw) S.draw();
     });
@@ -2877,7 +3055,9 @@ function update(hass, entity) {
   ];
   S.dbgShow = () => {
     const d = dbgList[S.dbgIdx];
-    S.dbgText.textContent = (S.dbgIdx + 1) + '/' + dbgList.length + ' · ' + d.c + (d.n ? ' · night' : ' · day');
+    S.dbgText.textContent = fmtInt(S.dbgIdx + 1) + '/' + fmtInt(dbgList.length) + ' · ' + d.c + ' · ' + tr(d.n ? 'night' : 'day');
+    const widest = dbgList.reduce((m, item, i) => Math.max(m, ((i + 1) + '/' + dbgList.length + ' · ' + item.c + ' · ' + tr(item.n ? 'night' : 'day')).length), 0);
+    S.dbgText.style.minWidth = widest + 'ch';
     /* a knob showing the live reading is dimmed; once stepped it holds its own value */
     const pcx = cfg.precipitation || {};
     const nz = (id) => { const e2 = id && hass.states[id]; const v2 = e2 && Number(e2.state); return isFinite(v2) ? v2 : null; };
@@ -2885,13 +3065,23 @@ function update(hass, entity) {
     (S.dbgKnobs || []).forEach((kn) => {
       if (!kn.el) return;
       const v2 = kn.vals[kn.i], set = v2 != null;
-      kn.el.textContent = (kn.label ? kn.label + ': ' : '') + kn.fmt(set ? v2 : live[kn.src]);
+      kn.el.textContent = (kn.label ? tr(kn.label) + ': ' : '') + kn.fmt(set ? v2 : live[kn.src]);
       kn.el.classList.toggle('live', !set);
     });
     S.apply(d.c, d.n);
   };
   if (cfg.debug) {
     if (S.dbgIdx == null) S.dbgIdx = 0;
+    const rateF = (v) => v == null ? '–' : v === 0 ? tr('None') : fmtNum(Math.round(fromBase(v) * 100) / 100) + ' ' + precipU + '/h';
+    const knobs = [
+      { key: 'dbgRain', src: 'rain', label: 'Rain', vals: [null, 0, 0.2, 1, 2.5, 7.5, 15], fmt: rateF },
+      { key: 'dbgSnow', src: 'snow', label: 'Snow', vals: [null, 0, 0.2, 1, 2.5, 7.5, 15], fmt: rateF },
+      { key: 'dbgIce', src: 'ice', label: 'Sleet', vals: [null, 0, 0.2, 1, 2.5, 7.5], fmt: rateF },
+      { key: 'dbgWind', src: 'wind', label: 'Wind', vals: [null, 0, 10, 25, 45, 70], fmt: (v) => v == null ? '–' : fmtInt(v / wPer) + ' ' + wu },
+      { key: 'dbgDir', src: 'dir', label: '', vals: [null, 'W', 'E'], fmt: (v) => v === 'E' ? tr('⇠ drift') : v === 'W' ? tr('drift ⇢') : '–' },
+      { key: 'dbgCloud', src: 'cloud', label: 'Cloud', vals: [null, 0, 20, 50, 80, 100], fmt: (v) => v == null ? '–' : fmtInt(v) + '%' },
+      { key: 'dbgStorm', src: 'storm', label: 'Storm', vals: [null, 3, 10, 25, 60], fmt: (v) => v == null ? tr('None') : fmtInt(v) + ' km' },
+    ];
     if (!S.dbgBar) {
       /* one panel laid over the bottom of the card, so the controls never fight the
          header, chips or summary for space */
@@ -2905,24 +3095,12 @@ function update(hass, entity) {
       };
       mk(-1);
       S.dbgText = L.el('span', 'wx-debug-text', S.dbgBar);
-      /* hold the width of the longest label so the pill never resizes while stepping */
-      const widest = dbgList.reduce((m, d, i) => Math.max(m, ((i + 1) + '/' + dbgList.length + ' · ' + d.c + (d.n ? ' · night' : ' · day')).length), 0);
-      S.dbgText.style.minWidth = widest + 'ch';
       mk(1);
       ['pointerdown', 'pointerup', 'touchstart', 'touchend', 'mousedown', 'mouseup'].forEach((ev) => S.dbgBar.addEventListener(ev, (e) => e.stopPropagation()));
       /* knobs: tap one to step it through its values and watch the scene react.
          "auto" hands that input back to the sensors. */
       /* each knob starts on the live reading and steps through fixed values from there */
-      const rateF = (v) => v == null ? '–' : v === 0 ? 'none' : (Math.round(fromBase(v) * 100) / 100) + ' ' + precipU + '/h';
-      S.dbgKnobs = [
-        { key: 'dbgRain', src: 'rain', label: 'Rain', vals: [null, 0, 0.2, 1, 2.5, 7.5, 15], fmt: rateF },
-        { key: 'dbgSnow', src: 'snow', label: 'Snow', vals: [null, 0, 0.2, 1, 2.5, 7.5, 15], fmt: rateF },
-        { key: 'dbgIce', src: 'ice', label: 'Sleet', vals: [null, 0, 0.2, 1, 2.5, 7.5], fmt: rateF },
-        { key: 'dbgWind', src: 'wind', label: 'Wind', vals: [null, 0, 10, 25, 45, 70], fmt: (v) => v == null ? '–' : Math.round(v / wPer) + ' ' + wu },
-        { key: 'dbgDir', src: 'dir', label: '', vals: [null, 'W', 'E'], fmt: (v) => v === 'E' ? '⇠ drift' : v === 'W' ? 'drift ⇢' : '–' },
-        { key: 'dbgCloud', src: 'cloud', label: 'Cloud', vals: [null, 0, 20, 50, 80, 100], fmt: (v) => v == null ? '–' : Math.round(v) + '%' },
-        { key: 'dbgStorm', src: 'storm', label: 'Storm', vals: [null, 3, 10, 25, 60], fmt: (v) => v == null ? 'none' : Math.round(v) + ' km' }
-      ];
+      S.dbgKnobs = knobs;
       S.dbgOpts = L.el('div', 'wx-debug-opts', S.dbgPanel);
       S.dbgKnobs.forEach((kn) => {
         kn.i = 0;
@@ -2939,6 +3117,7 @@ function update(hass, entity) {
       });
       ['pointerdown', 'pointerup', 'touchstart', 'touchend', 'mousedown', 'mouseup'].forEach((ev) => S.dbgOpts.addEventListener(ev, (e) => e.stopPropagation()));
     }
+    S.dbgKnobs.forEach((kn, i) => { kn.fmt = knobs[i].fmt; });
     S.dbgShow();
   } else {
     if (S.dbgPanel) { S.dbgPanel.remove(); S.dbgPanel = null; }
@@ -3001,10 +3180,11 @@ function update(hass, entity) {
       let mark = '', tip = '';
       if (isFinite(nowP) && past) {
         const d2 = nowP - past[1];
-        if (d2 >= 1) { mark = '↑'; tip = 'Pressure rising ' + d2.toFixed(1) + ' over 3 h'; }
-        else if (d2 <= -1) { mark = '↓'; tip = 'Pressure falling ' + Math.abs(d2).toFixed(1) + ' over 3 h'; }
+        if (d2 >= 1) { mark = '↑'; tip = tf('Pressure rising {value} over 3 h', { value: fmtFixed(d2, 1) }); }
+        else if (d2 <= -1) { mark = '↓'; tip = tf('Pressure falling {value} over 3 h', { value: fmtFixed(Math.abs(d2), 1) }); }
       }
-      if (S.trend.textContent !== mark) { S.trend.textContent = mark; S.trend.title = tip; }
+      if (S.trend.textContent !== mark) S.trend.textContent = mark;
+      if (S.trend.title !== tip) S.trend.title = tip;
       S.trend.classList.toggle('down', mark === '↓');
     }
   }
@@ -3019,7 +3199,7 @@ function update(hass, entity) {
       : Number(a.apparent_temperature);
     if (isFinite(av)) { tv = av; feels = true; }
   }
-  const tNow = isNaN(tv) ? '–' : (Math.abs(tv - Math.round(tv)) > 0.049 ? tv.toFixed(1) : String(Math.round(tv))) + '°';
+  const tNow = isNaN(tv) ? '–' : (Math.abs(tv - Math.round(tv)) > 0.049 ? fmtFixed(tv, 1) : fmtInt(tv)) + '°';
   if (S.temp.textContent !== tNow) S.temp.textContent = tNow;
   if (S.now) S.now.classList.toggle('wx-feels', feels);
 
@@ -3034,14 +3214,14 @@ function update(hass, entity) {
     if (dcfg.uv) {
       const v = num(dcfg.uv);
       if (v != null) S.uvNow = v;
-      if (v != null) chips.push({ ent: dcfg.uv, view: 'uv', icon: 'mdi:white-balance-sunny', label: 'UV', value: Math.round(v),
+      if (v != null) chips.push({ ent: dcfg.uv, view: 'uv', icon: 'mdi:white-balance-sunny', label: 'UV', value: fmtInt(v),
         note: tr(band(v, [2, 5, 7, 10], ['Low', 'Moderate', 'High', 'Very high', 'Extreme'])), col: band(v, [2, 5, 7, 10], [cols[0], cols[1], cols[2], cols[3], cols[4]]) });
     }
     if (dcfg.aqi) {
       const v = num(dcfg.aqi);
       if (v != null) {
         S.aqiNow = v;
-        chips.push({ ent: dcfg.aqi, view: 'aqi', icon: 'mdi:air-filter', label: aqiScale.name, value: Math.round(v),
+        chips.push({ ent: dcfg.aqi, view: 'aqi', icon: 'mdi:air-filter', label: aqiScale.name, value: fmtInt(v),
           note: aqiLabel(v), col: aqiBandOf(v)[2] });
       }
     }
@@ -3055,7 +3235,7 @@ function update(hass, entity) {
       if (dv == null && S.humNow != null) dv = dewFrom(a.temperature, S.humNow);
       S.dewNow = dv;
       if (dv != null) {
-        chips.push({ ent: dewSensor() || ent, view: 'dew', icon: 'mdi:water-thermometer', label: 'Dew point', value: L.t(dv),
+        chips.push({ ent: dewSensor() || ent, view: 'dew', icon: 'mdi:water-thermometer', label: 'Dew point', value: fmtTemp(dv),
           note: dewLabel(dv), col: [cols[5], cols[0], cols[1], cols[2], cols[3]][dewBandIx(Math.round(dv))] });
       }
     }
@@ -3072,8 +3252,8 @@ function update(hass, entity) {
         else if (a.wind_gust_speed != null) gust = Number(a.wind_gust_speed);
         S.windNow = { v: v, u: u, dir: dir, gust: null };
         if (gust != null && isFinite(gust)) S.windNow.gust = gust;
-        chips.push({ ent: ent, view: 'wind', icon: 'mdi:weather-windy', label: 'Wind', value: Math.round(v) + ' ' + u + (dir ? ' ' + dir : ''),
-          note: gust != null && isFinite(gust) && gust > v ? tr('Gusts') + ' ' + Math.round(gust) + (gu !== u ? ' ' + gu : '') : '',
+        chips.push({ ent: ent, view: 'wind', icon: 'mdi:weather-windy', label: 'Wind', value: fmtInt(v) + ' ' + u + (dir ? ' ' + tr(dir) : ''),
+          note: gust != null && isFinite(gust) && gust > v ? tr('Gusts') + ' ' + fmtInt(gust) + (gu !== u ? ' ' + gu : '') : '',
           col: band(k, [10, 20, 30, 40, 50], cols) });
       }
     }
@@ -3091,7 +3271,7 @@ function update(hass, entity) {
     if (dcfg.solar) {
       const v = num(dcfg.solar);
       if (v != null) S.solarNow = v;
-      if (v != null) chips.push({ ent: dcfg.solar, view: 'solar', icon: 'mdi:solar-power-variant', label: 'Solar', value: Math.round(v) + ' W/m²',
+      if (v != null) chips.push({ ent: dcfg.solar, view: 'solar', icon: 'mdi:solar-power-variant', label: 'Solar', value: fmtInt(v) + ' W/m²',
         note: v < 5 ? tr('None') : tr(band(v, [100, 300, 600], ['Dim', 'Moderate', 'Strong', 'Very strong'])),
         col: v < 5 ? '70,80,110' : band(v, [100, 300, 600], [cols[4], cols[1], cols[2], cols[3]]) });
     }
@@ -3101,7 +3281,7 @@ function update(hass, entity) {
     const shownC = Object.assign({ uv: true, aqi: true, dew_point: true, wind: true, solar: false, sun: true }, cfg.show_chips || {});
     const chipKeyOf = { dew: 'dew_point' };
     for (let i = chips.length - 1; i >= 0; i--) { const k2 = chipKeyOf[chips[i].view] || chips[i].view; if (!shownC[k2]) chips.splice(i, 1); }
-    const dkey = chips.map((c) => c.ent + c.value + c.note + c.col).join(';');
+    const dkey = localeKey + '|' + chips.map((c) => c.ent + c.value + c.note + c.col).join(';');
     if (S.detailKey !== dkey) {
       S.detailKey = dkey;
       S.details.innerHTML = '';
@@ -3146,7 +3326,7 @@ function update(hass, entity) {
       if (!heads.length && as.state && isNaN(Number(as.state)) && !/^(unknown|unavailable|none|off)$/i.test(as.state)) heads = [as.state];
       if (Number(as.state) === 0) heads = [];
     }
-    if (cfg.debug && !heads.length) heads = ['Heat Warning (sample)'];
+    if (cfg.debug && !heads.length) heads = [tr('Heat Warning (sample)')];
     const key = heads.join('|');
     if (S.alertKey !== key) {
       S.alertKey = key;
@@ -3157,7 +3337,7 @@ function update(hass, entity) {
       if (appearing && !(W.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) S.alert.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 250, easing: 'ease-out' });
       S.alertSeen = true;
       S.alertText.textContent = heads[0] || '';
-      S.alertMore.textContent = heads.length > 1 ? '+' + (heads.length - 1) : '';
+      S.alertMore.textContent = heads.length > 1 ? '+' + fmtInt(heads.length - 1) : '';
       box.classList.toggle('wx-alerting', heads.length > 0);
     }
   }
@@ -3305,7 +3485,7 @@ function update(hass, entity) {
       list = [1];
       S.sunW = Math.max(120, (fc.clientWidth - 24) || (box.clientWidth - 48) || 320);
       if (!S.sunH) { const h3 = box.clientHeight - row.offsetHeight - 98; S.sunH = isFinite(h3) && h3 > 90 ? h3 : 180; }
-      sig = 'w|' + (S.view.off || 0) + '|' + (((((S.view.off || 0) === 0 ? S.wHist : S['wHist_' + S.view.off]) || {}).at) || 0) + '|' + ((histOf('wHist', offW0 - 1) || {}).at || 0) + '|' + ((S.hours || []).length) + '|' + (S.windNow ? S.windNow.v + '/' + S.windNow.gust : '') + '|' + Math.floor(Date.now() / 6e4) + '|' + S.sunW + 'x' + S.sunH;
+      sig = 'w|' + (S.view.off || 0) + '|' + (((((S.view.off || 0) === 0 ? S.wHist : S['wHist_' + S.view.off]) || {}).at) || 0) + '|' + ((histOf('wHist', offW0 - 1) || {}).at || 0) + '|' + ((S.hours || []).length) + '|' + (S.windNow ? S.windNow.v + '/' + S.windNow.gust + '/' + S.windNow.dir : '') + '|' + Math.floor(Date.now() / 6e4) + '|' + S.sunW + 'x' + S.sunH;
     } else if (sunView) {
       const offS0 = S.view.off || 0;
       const T = offS0 ? sunCalc(offS0) : (sunTimes() || sunCalc(0));
@@ -3368,7 +3548,7 @@ function update(hass, entity) {
         sig += '|' + Object.keys(S.calHL).map((k) => k + ':' + Math.round(S.calHL[k][0]) + '/' + Math.round(S.calHL[k][1])).join(',');
       }
     }
-    sig += '|' + nightNow + unit;
+    sig += '|' + nightNow + unit + '|' + localeKey;
     if (S.sig === sig) return;
     /* switching between days and hours: fade the strip out, rebuild, fade back in */
     const modeKey = solView ? 'o' : uvView ? 'v' : dewView ? 'p' : aqiView ? 'a' : windView ? 'w' : sunView ? 's' : hourly ? 'h' : 'd';
@@ -3504,16 +3684,7 @@ function update(hass, entity) {
         return b2;
       };
       mkA(-1, 'mdi:chevron-left');
-      const d2 = new Date(dayStartOf(off));
-      const wd = d2.toLocaleDateString(lang, { weekday: 'long' });
-      /* a weekday name only within the week either side; further out it would be the
-         wrong week ("Last Thursday" for three months ago), so it gives the date */
-      const far = { weekday: 'short', month: 'short', day: 'numeric' };
-      if (d2.getFullYear() !== new Date().getFullYear()) far.year = 'numeric';
-      L.el('span', 'wx-daynav-label', nav).textContent = off === 0 ? tr(label || 'Today')
-        : off === 1 ? tr('Tomorrow') : off === -1 ? tr('Yesterday')
-        : Math.abs(off) >= 7 ? d2.toLocaleDateString(lang, far)
-        : off < 0 ? 'Last ' + wd : wd;
+      L.el('span', 'wx-daynav-label', nav).textContent = dayLabel(off, label);
       mkA(1, 'mdi:chevron-right');
     };
     /* graph views: build, then on the next frame give the svg exactly the space left */
@@ -3579,7 +3750,7 @@ function update(hass, entity) {
       const b = document.createElement('ha-icon'); b.icon = 'mdi:chevron-left'; back.appendChild(b);
       L.el('span', 'wx-fc-title', back).textContent = tr('Back');
       const offS = Math.min(0, S.view.off || 0);
-      L.el('span', 'wx-fc-hint', head).textContent = offS ? '' : (S.solarNow != null ? Math.round(S.solarNow) + ' W/m²' : 'Sunlight');
+      L.el('span', 'wx-fc-hint', head).textContent = offS ? '' : (S.solarNow != null ? fmtInt(S.solarNow) + ' W/m²' : tr('Sunlight'));
       dayNav(null, 'sHist', null, null, 0);
       if (noHistory('sHist')) return;
       mountGraph((w2, h2) => solarGraph(w2, h2, offS), '.wx-wind-summary');
@@ -3591,7 +3762,7 @@ function update(hass, entity) {
       L.el('span', 'wx-fc-title', back).textContent = tr('Back');
       const un = S.uvNow;
       const offU = (S.view.off || 0);
-      L.el('span', 'wx-fc-hint', head).textContent = offU ? '' : (un != null ? 'UV ' + Math.round(un) + ' · ' + (uvBands.find((b) => un < b[1]) || uvBands[4])[3].replace(/^./, (c) => c.toUpperCase()) : 'UV Index');
+      L.el('span', 'wx-fc-hint', head).textContent = offU ? '' : (un != null ? 'UV ' + fmtInt(un) + ' · ' + (uvBands.find((b) => un < b[1]) || uvBands[4])[3].replace(/^./, (c) => c.toUpperCase()) : tr('UV Index'));
       dayNav(null, 'uHist');
       if (noHistory('uHist')) return;
       mountGraph((w2, h2) => uvGraph(w2, h2, offU), '.wx-wind-summary');
@@ -3603,7 +3774,7 @@ function update(hass, entity) {
       L.el('span', 'wx-fc-title', back).textContent = tr('Back');
       const dn = S.dewNow;
       const offD = (S.view.off || 0);
-      L.el('span', 'wx-fc-hint', head).textContent = offD ? '' : (dn != null ? Math.round(dn) + '° · ' + dewLabel(dn) : 'Dew point');
+      L.el('span', 'wx-fc-hint', head).textContent = offD ? '' : (dn != null ? fmtInt(dn) + '° · ' + dewLabel(dn) : tr('Dew point'));
       dayNav(null, 'dHist');
       if (noHistory('dHist')) return;
       mountGraph((w2, h2) => dewGraph(w2, h2, offD), '.wx-wind-summary');
@@ -3614,7 +3785,7 @@ function update(hass, entity) {
       const b = document.createElement('ha-icon'); b.icon = 'mdi:chevron-left'; back.appendChild(b);
       L.el('span', 'wx-fc-title', back).textContent = tr('Back');
       const offA = Math.min(0, S.view.off || 0);
-      L.el('span', 'wx-fc-hint', head).textContent = offA ? '' : (S.aqiNow != null ? aqiScale.name + ' ' + Math.round(S.aqiNow) + ' · ' + aqiLabel(S.aqiNow) : 'Air Quality');
+      L.el('span', 'wx-fc-hint', head).textContent = offA ? '' : (S.aqiNow != null ? aqiScale.name + ' ' + fmtInt(S.aqiNow) + ' · ' + aqiLabel(S.aqiNow) : tr('Air Quality'));
       dayNav(null, 'aHist', null, null, 0);
       if (noHistory('aHist')) return;
       mountGraph((w2, h2) => aqiGraph(w2, h2, offA), '.wx-wind-summary');
@@ -3626,7 +3797,7 @@ function update(hass, entity) {
       L.el('span', 'wx-fc-title', back).textContent = tr('Back');
       const wn = S.windNow;
       const offW = (S.view.off || 0);
-      L.el('span', 'wx-fc-hint', head).textContent = offW ? '' : (wn ? Math.round(wn.v) + ' ' + wn.u + (wn.dir ? ' ' + wn.dir : '') + (wn.gust != null ? ' · Gusts: ' + Math.round(wn.gust) + ' ' + wn.u : '') : 'Wind');
+      L.el('span', 'wx-fc-hint', head).textContent = offW ? '' : (wn ? fmtInt(wn.v) + ' ' + wn.u + (wn.dir ? ' ' + tr(wn.dir) : '') + (wn.gust != null ? ' · ' + tf('Gusts: {value} {unit}', { value: fmtInt(wn.gust), unit: wn.u }) : '') : tr('Wind'));
       dayNav(null, 'wHist');
       if (noHistory('wHist')) return;
       mountGraph((w2, h2) => windGraph(w2, h2, offW), '.wx-wind-summary');
@@ -3646,9 +3817,9 @@ function update(hass, entity) {
           /* another day: how its daylight compares with today's */
           const T0 = sunCalc(0);   /* calculated both sides, so only the season differs */
           const dd = T0 ? Math.round(((T.set - T.rise) - (T0.set - T0.rise)) / 6e4) : null;
-          const amt = (m) => (m < 60 ? m + ' min' : fmtDur(m * 6e4));
-          hint = dd == null ? '' : dd === 0 ? 'Same daylight as today' : amt(Math.abs(dd)) + (dd > 0 ? ' more' : ' less') + ' daylight than today';
-        } else if (now >= T.rise && now < T.set) hint = 'Daylight remaining: ' + fmtDur(T.set - now);
+          const amt = (m) => (m < 60 ? tf('{value} min', { value: fmtInt(m) }) : fmtDur(m * 6e4));
+          hint = dd == null ? '' : dd === 0 ? tr('Same daylight as today') : tf(dd > 0 ? '{duration} more daylight than today' : '{duration} less daylight than today', { duration: amt(Math.abs(dd)) });
+        } else if (now >= T.rise && now < T.set) hint = tf('Daylight remaining: {duration}', { duration: fmtDur(T.set - now) });
         else hint = tf('Sunrise in: {duration}', { duration: fmtDur((now < T.rise ? T.rise : T.rise + 864e5) - now) });
       }
       L.el('span', 'wx-fc-hint', head).textContent = hint;
@@ -3698,25 +3869,29 @@ function update(hass, entity) {
         .concat(histPts.map((p) => Number(p[1])))
         .filter((v) => isFinite(v));
       L.el('span', 'wx-fc-hint', head).textContent = partDay
-        ? 'H ' + L.t(dayEnt.temperature) + (dayEnt.templow != null ? ' L ' + L.t(dayEnt.templow) : '')
-        : (hi2.length ? 'H ' + L.t(Math.max(...hi2)) + ' L ' + L.t(Math.min(...hi2)) : '');
+        ? tf(dayEnt.templow != null ? 'H {high} L {low}' : 'H {high}', { high: fmtTemp(dayEnt.temperature), low: fmtTemp(dayEnt.templow) })
+        : (hi2.length ? tf('H {high} L {low}', { high: fmtTemp(Math.max(...hi2)), low: fmtTemp(Math.min(...hi2)) }) : '');
       /* step through the days without going back to the strip */
       dayNav(null, 'tHist', hrOff, (n2) => {
         const d3 = new Date(dayStartOf(n2));
         S.view.day = L.dkey(d3);
-        S.view.label = n2 === 0 ? 'Today' : n2 === 1 ? 'Tomorrow' : n2 === -1 ? 'Yesterday'
-          : n2 < 0 ? 'Last ' + d3.toLocaleDateString(lang, { weekday: 'long' }) : d3.toLocaleDateString(lang, { weekday: 'long' });
         S.view.at = Date.now(); S.sig = null; S.draw();
       });
+      const viewLabel = dayLabel(hrOff);
+      const dayForecastText = () => {
+        const amount = Number(dayEnt.precipitation);
+        const wet = isFinite(amount) && precipBase(amount) >= 0.1;
+        const key = dayEnt.templow != null
+          ? (wet ? 'For the day as a whole: high {high}, low {low}, {amount} precipitation.' : 'For the day as a whole: high {high}, low {low}.')
+          : (wet ? 'For the day as a whole: high {high}, {amount} precipitation.' : 'For the day as a whole: high {high}.');
+        return tf(key, { high: fmtTemp(dayEnt.temperature), low: fmtTemp(dayEnt.templow), amount: fmtPrecip(amount) });
+      };
       /* a day the hourly forecast barely touches (the last one often gets only its
          midnight hour) has nothing to draw: say so, and give that day's own forecast in
          words, rather than an empty chart */
       if (hrOff >= 1 && list.length < 3 && dayEnt && S.hours) {
         fc.innerHTML = '';
-        const amtD = Number(dayEnt.precipitation);
-        L.el('div', 'wx-empty', fc).textContent = (S.view.label || 'This day') + ' isn\'t forecast hour by hour yet. For the day as a whole: high '
-          + L.t(dayEnt.temperature) + (dayEnt.templow != null ? ', low ' + L.t(dayEnt.templow) : '')
-          + (isFinite(amtD) && precipBase(amtD) >= 0.1 ? ', ' + fmtPrecip(amtD) : '') + '.';
+        L.el('div', 'wx-empty', fc).textContent = tf("{day} isn't forecast hour by hour yet.", { day: viewLabel }) + ' ' + dayForecastText();
         S.fadedMode = null; S.edge(); return;
       }
       if (!list.length && hrOff >= 0) {
@@ -3737,17 +3912,12 @@ function update(hass, entity) {
         const vsP = histPts.map((p) => Number(p[1])).filter((v) => isFinite(v));
         const fromTxt = new Date(histPts[0][0]).toLocaleTimeString(lang, { hour: 'numeric', hour12: h12 });
         const fEl2 = fc.querySelector('.wx-wind-summary');
-        if (fEl2 && vsP.length) fEl2.textContent = (S.view.label || 'This day') + ' is only recorded from '
-          + fromTxt + '. From then, a ' + hiLoAt(histPts, L.t) + '.';
+        if (fEl2 && vsP.length) fEl2.textContent = tf('{day} is only recorded from {time}. From then, a {range}.', { day: viewLabel, time: fromTxt, range: hiLoAt(histPts, fmtTemp) });
       }
       if (partDay && list.length) {
         const lastT = Math.max(...list.map((i) => Date.parse(i.datetime)));
         const endTxt = new Date(lastT).toLocaleTimeString(lang, { hour: 'numeric', hour12: h12 });
-        const amtP = Number(dayEnt.precipitation);
-        const sum = (S.view.label || 'This day') + ' is only forecast hour by hour to ' + endTxt
-          + '. For the day as a whole: high ' + L.t(dayEnt.temperature)
-          + (dayEnt.templow != null ? ', low ' + L.t(dayEnt.templow) : '')
-          + (isFinite(amtP) && precipBase(amtP) >= 0.1 ? ', ' + fmtPrecip(amtP) : '') + '.';
+        const sum = tf('{day} is only forecast hour by hour to {time}.', { day: viewLabel, time: endTxt }) + ' ' + dayForecastText();
         const fEl = fc.querySelector('.wx-wind-summary');
         if (fEl) fEl.textContent = sum;
       }
@@ -3772,17 +3942,17 @@ function update(hass, entity) {
       let nt = false, label;
       if (hourly || type === 'hourly') {
         nt = nightAt(d.getTime());
-        label = (!hourly && idx === 0) ? 'Now' : d.toLocaleTimeString(lang, { hour: 'numeric', hour12: h12 });
+        label = (!hourly && idx === 0) ? tr('Now') : d.toLocaleTimeString(lang, { hour: 'numeric', hour12: h12 });
       } else if (type === 'twice_daily') {
         nt = it.is_daytime === false;
-        label = d.toLocaleDateString(lang, { weekday: 'short' }) + (nt ? ' night' : '');
+        const weekday = d.toLocaleDateString(lang, { weekday: 'short' });
+        label = nt ? tf('{weekday} night', { weekday }) : weekday;
       } else {
         /* shown as HA's own forecast does: weekday labels, entries as the provider
            sends them; a night-only entry (no high) gets the night icon */
         label = d.toLocaleDateString(lang, { weekday: 'short' });
         if (it.temperature == null && it.templow != null) nt = true;
         cell.dataset.day = L.dkey(d);
-        cell.dataset.label = d.toLocaleDateString(lang, { weekday: 'long' });
         /* a day opens when the hourly forecast covers it well enough to chart; the last
            day often gets only its midnight hour, and an empty chart is no use. Until the
            hourly forecast has arrived every day opens (its view says it's loading). */
@@ -3791,17 +3961,17 @@ function update(hass, entity) {
       L.el('div', 'wx-item-label', cell).textContent = label;
       cell.appendChild(L.icon(variant(it.condition || 'cloudy', nt)));
       const calK = (S.calHL || {})[L.dkey(new Date(it.datetime))];
-      L.el('div', 'wx-item-temp', cell).textContent = L.t(!hourly && calK ? calK[0] : it.temperature);
+      L.el('div', 'wx-item-temp', cell).textContent = fmtTemp(!hourly && calK ? calK[0] : it.temperature);
       const lo = L.el('div', 'wx-item-lo', cell);
-      if (!hourly && type === 'daily' && (calK || it.templow != null)) lo.textContent = L.t(calK ? calK[1] : it.templow);
-      else { const p = Number(it.precipitation_probability); lo.textContent = (isFinite(p) && p >= 20) ? p + '%' : ''; lo.classList.add('wx-pop'); }
+      if (!hourly && type === 'daily' && (calK || it.templow != null)) lo.textContent = fmtTemp(calK ? calK[1] : it.templow);
+      else { const p = Number(it.precipitation_probability); lo.textContent = (isFinite(p) && p >= 20) ? fmtNum(p) + '%' : ''; lo.classList.add('wx-pop'); }
       /* how much, not just how likely: an amount says far more than a percentage. The row is only
          added when some day in the strip actually has an amount, so a dry week stays short */
       if (wetWeek) {
         const amtD = Number(it.precipitation), pD = Number(it.precipitation_probability);
         const rain = L.el('div', 'wx-item-rain', cell);
         rain.textContent = isFinite(amtD) && precipBase(amtD) >= 0.1 ? fmtPrecip(amtD)
-          : (isFinite(pD) && pD >= 20 ? pD + '%' : '');
+          : (isFinite(pD) && pD >= 20 ? fmtNum(pD) + '%' : '');
       }
     });
     requestAnimationFrame(() => { fc.scrollLeft = 0; S.edge(); });
@@ -3909,7 +4079,7 @@ const report = (e) => {
 class SpyglassWeatherCard extends HTMLElement {
   setConfig(config) {
     if (!config || typeof config.entity !== 'string' || !config.entity.startsWith('weather.')) {
-      throw new Error('Set "entity" to a weather entity, e.g. weather.home');
+      throw new Error(spyglassT(this._hass, 'Set "entity" to a weather entity, e.g. weather.home'));
     }
     /* the card's options sit at the top level, next to type and entity */
     const options = {};
@@ -3946,8 +4116,10 @@ class SpyglassWeatherCard extends HTMLElement {
     if (!this._config) return;
     if (!this._ctx) this._build();
     if (!this._resolved) this._resolve();
+    const localeKey = spyglassLocaleKey(hass);
     const seen = this._watch.map((id) => hass.states[id]);
-    if (this._seen && seen.every((s, i) => s === this._seen[i])) return;
+    if (this._seen && this._localeKey === localeKey && seen.every((s, i) => s === this._seen[i])) return;
+    this._localeKey = localeKey;
     this._seen = seen;
     this._update();
   }
